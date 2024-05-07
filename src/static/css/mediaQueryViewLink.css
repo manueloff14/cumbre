@@ -1,0 +1,56 @@
+@media (max-width: 1298px) {
+    .formulario {
+        width: 45%;
+    }
+}
+
+@media (max-width: 1199px) {
+    .bienvenida img {
+        display: none;
+    }
+}
+
+@media (max-width: 1147px) {
+    .pagina {
+        display: flex;
+        flex-direction: column;
+    }
+    .formulario {
+        width: 60%;
+    }
+}
+
+@media (max-width: 920px) {
+    .formulario {
+        width: 70%;
+    }
+}
+
+@media (max-width: 828px) {
+    
+}
+
+@media (max-width: 740px) {
+    .cargando {
+        display: flex;
+        flex-direction: column;
+    }
+    .cargando h3 {
+        display: none;
+        padding-bottom: 300px;
+    }
+    .cuenta_regresiva {
+        position: relative;
+        margin: 30px 0px;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+
+
+@media (max-width: 522px) {
+    .formulario {
+        width: 90%;
+    }
+}

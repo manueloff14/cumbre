@@ -1,0 +1,94 @@
+<ul class="enlaces">
+    {% for link in links %}
+    <li class="enlace">
+        {% include './components/moreOptionsEnlace.html' %}
+        {% include './components/contenidoEnlace.html' %}
+    </li>
+    {% else %}
+    <li>No se encontraron enlaces.</li>
+    {% endfor %}
+</ul>
+
+<div class="fondo_editarEnlace" id="fondo_editarEnlace">
+    <div class="editar_enlaceForm" id="formEditarEnlace">
+        <div class="formEditarEnlace_superior">
+            <h2>
+                <strong>Editar enlace</strong>
+            </h2>
+            <button onclick="cerrarformEditarEnlace()">
+                <strong>Cerrar</strong>
+            </button>
+        </div>
+        <form action="/editar_enlace" method="post">
+            <div class="field">
+                <label for="tituloEditar">Título del Enlace</label>
+                <input type="text" id="tituloEditar" name="tituloEditar" placeholder=" " required>
+            </div>
+            <div style="display: none;" class="field">
+                <label for="enlaceCortoEditar">Enlace Corto</label>
+                <input type="hidden" id="enlaceCortoEditar" name="enlaceCortoEditar" placeholder=" " required>
+            </div>
+            <div class="field">
+                <label for="enlaceLargoEditar">Enlace Largo</label>
+                <input type="url" id="enlaceLargoEditar" name="enlaceLargoEditar" placeholder=" " required>
+            </div>
+            <br>
+            <button type="submit">
+                <strong>Actualizar</strong>
+            </button>
+        </form>
+    </div>
+</div>
+
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/formEditarEnlace.css') }}">
+
+<script>
+    function mostrarFormEditarEnlace(shortLink) {
+        // Mostrar el formulario
+        var div = document.getElementById('fondo_editarEnlace');
+        div.style.display = 'block';
+
+        // Cargar los datos en el formulario
+        // Supongamos que tienes una función `cargarDatosEnlace(shortLink)` que realiza una petición AJAX
+        cargarDatosEnlace(shortLink);
+    }
+
+    function cargarDatosEnlace(shortLink) {
+        fetch('/get_link_data?shortLink=' + shortLink)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('No se encontró el enlace');
+                }
+                return response.json();
+            })
+            .then(data => {
+                if (data.error) {
+                    throw new Error(data.error);
+                }
+                document.getElementById('tituloEditar').value = data.title || 'as'; // Usar operador OR para evitar undefined
+                document.getElementById('enlaceCortoEditar').value = data.short_link || 'adsa';
+                document.getElementById('enlaceLargoEditar').value = data.long_link || 'as';
+            })
+            .catch(error => {
+                console.error('Error al cargar los datos del enlace:', error);
+                alert('Error al cargar los datos: ' + error.message);
+            });
+    }
+
+    function cerrarformEditarEnlace() {
+        var div = document.getElementById('fondo_editarEnlace');
+        div.style.display = 'none'; // Cambia el estilo para mostrar el div
+    }
+</script>
+
+<style>
+    #fondo_editarEnlace {
+        display: none;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        z-index: 10000;
+    }
+</style>
+
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/enlaces.css') }}">

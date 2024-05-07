@@ -1,0 +1,63 @@
+<header>
+    <h1 id="nombrePagina">Panel</h1>
+    <div class="sidebar">
+        <button id="chat" style="cursor:not-allowed;">
+            <img
+                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAACi0lEQVR4nO2YTW8NURjHp1YWIrnqZd+qSr+HRJu+IDaCWBDdqFARXRB8gEr6AdgQkVZILXTREi+xIBV34bW2ImjUVe/F/OSJJ3IymXvnzO095zQxv+XMmXn+/zNnnvOcJ4oKCgr+T4CNwFFgFHgJVPjLHDADXAUGgQ3RUgLYCtwhH3eBrqUw41MsjmvA2hDie4B5GsNboNOn+P3AbxrLAtDrQ3wv8As3fAc2uxTfBnzBLe+Bda4MTOKHcRfit+GXzkYbuOXZwO1E/JbFiO8gDK2GhnFgR70GDgUycMTQcAyIgQP1GBgLZOCKoaFLr8W5vwTwPJCBZ4aGVuP6Zylj8hiQrT4EHw0NqxL37gFNtga+BTLww9CwPOX+dlsDrwlDxdBQSrl/39bANGGYMTS0VBnTYWPgHGG4lJKFkgzZGNhFGAYNDafqrpuANVrq+iQG1hsarlcZ9yLTgL7ggmcDN43YzTUy4aytgd2eDfQYsQ/apNosAyMexU8YcZcBj2uMtf4CjzyJryTW/r6M8U9txJccHOLTkBjdibjvMp4Zsz3Iu+YnsNeI2ST7gMVzAzYGhh2L/5Ts0gHHLVNtW+hSYiJ5XAT2qLgsJjPF6wvnq6zXsmYn2anP59jsYm1J9qXEOmEpXui3NXBSO8zTupzknyiljFsN7ATOAg+AV3r4eKOHolHN6e0pz8pmdZF8jESh0Z9Vlsws+SmHFL5Se6y1NqksZBk3uxS5QmdYllY7sEmryqkGtij7XBroBj7glmFnBtSEzPwNhwYeOjVgGNki7cIcKTLWZnK/pupylXLmX+fClxH5IoeBy3IY0VpnQVs3T7SJNpC2w2prRVL4GZl54Ctw2quBgoKCyDl/ACBXbigpS0dtAAAAAElFTkSuQmCC">
+        </button>
+        <button style="display: none;">
+            <img
+                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAABcUlEQVR4nO3ZvS5EQRTA8fGRdVWi4yE8guiFChGN2tpVbSFUEk9AhJfQiweQ1bChUoj4SHyXJJtg/3KzoyP2zp6Zc5f5JVvv+d87xdlZY6IoEgF0A2PABrAPXADvQAO4Aw6BLWACSExeAAmwAlzRuidgHRjQHn4cOMfdIzCrNfyqPR4StoHeUIN32bMsbTdIBFDBnx3fw48Cb/g152v4HuAM/x6AQR8B84Sz5iMgxNP/8gwUJIcfIbxJyYBlhYBNyYA9hYADyYBThYB7yYB0+QqtLhnwoRCAZIAKEwOs+AYcGSkoMYK/ebUkEgFlxYBSu8P3ATeKAbdAfzsBJfQtug5fAC61pweu05PgElAkPxY6ZQP9Sc0loE5+vP7LNzAteHXYjgYwlTnARszYN+H7Mus76XeepA/Safio0wBVNG4cpABLGQKKJm9orh61FoY/Er02lAQM/xJxDAyZPKO5gpftv5Iv9lO1m232pSyKor/tE3FcQZLw8RjWAAAAAElFTkSuQmCC">
+        </button>
+        <form action="/search" method="get" class="buscador">
+            <input type="text" name="q" placeholder="Buscar aquí" id="query">
+            <button type="submit">
+                <img
+                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAC9klEQVR4nO2au2tVQRCHN4mkiwYrn1XEKpoiRqxCFDS2ghZqowiptEljYxWLdEIgIEKsbNMFAhIICooiUav4KAJBO21MUDBR7yfDWeEacnf3njvnnkf2+wP2NztndmZ29hgTiUQikUgkEskOYD9wDBgEjgMHgQ5TVYCjwB1gEVhje34Az4C74hRTBYDzwBPSsQRcBDpN2QCOAI/R4QUwYMoCcBlYR5efwE1TdIDbQI3smC7skSBJcu3gvilo2Nea3Mgv4CuwmcIJ46ZgCW89wGhx0DxwAzhUH8q2L7gCzAK/A9YSpw2ZIkBYtn8JnApcrx9YCFjzDdCV/Q79dd7HDNDd5LqdwGTAsbpm8gR46jHwYYvrT3jW/5hbC03S3vrCvrtFjQ5gzqMzrLcrvbJXCz3zATp9wIZDa1pDJ41hiw6j5pW1JI804oOmVjCOW51wXVlrFDe7NfW82Lrt4rBRRHKJp2Ea1NTzYocZrg5PvT4Dnxya57T1nAAnHcZ8MRkAvHZoXshCsyF2jNWIzSxubMCqQ/O0tp4T28u72GcUAXZ5SmF7ByYkDcp3h0FXlfVGHFp/gF5NvSCA5w6jZpW1phxay5pawdjpbSPkStuvpHPAE20PNHTSGDaAmwWNZAg88uiM6OwonXFLHuMmW1z/lmf9lVwfVEjm9nguRRNpjJQpsG2qXIxls7PmBhcyt/chV9q+Js68L+yFd1IeTd6Q5AKZ2/vYsLe60a1zAmmdbamb8iS8rSOx9pc/R7g2g3SLn20OWfU0OS5eFckJ98gHiYS9ee/f2HwgLzd5UKhIGE/52FEpJwzZ0NRAsv3bMjqhS+b2dnSdBmlyxuxNsNdurlxOqLs5Dtv88N7TNC1Lb29L4n/NU6mdUA/QA5wAzgKXgDO2l/AaXBkntAKwxz66lKdEahOdYFIdhx6zw50wY6oI4TlhrbD/F7UxEtr7hFYwJ6yYqoPbCaoPtoXFNloyePn278vvmM1v04JX98xHIpFIJBIx2vwFyuC9DcG7PH8AAAAASUVORK5CYII=">
+            </button>
+            <style>
+                .buscador button:hover {
+                    border: none;
+                }
+            </style>
+        </form>
+        <button id="mostrarBuscador" onclick="mostrarBuscadorMovil()">
+            <img
+                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAC9klEQVR4nO2au2tVQRCHN4mkiwYrn1XEKpoiRqxCFDS2ghZqowiptEljYxWLdEIgIEKsbNMFAhIICooiUav4KAJBO21MUDBR7yfDWeEacnf3njvnnkf2+wP2NztndmZ29hgTiUQikUgkEskOYD9wDBgEjgMHgQ5TVYCjwB1gEVhje34Az4C74hRTBYDzwBPSsQRcBDpN2QCOAI/R4QUwYMoCcBlYR5efwE1TdIDbQI3smC7skSBJcu3gvilo2Nea3Mgv4CuwmcIJ46ZgCW89wGhx0DxwAzhUH8q2L7gCzAK/A9YSpw2ZIkBYtn8JnApcrx9YCFjzDdCV/Q79dd7HDNDd5LqdwGTAsbpm8gR46jHwYYvrT3jW/5hbC03S3vrCvrtFjQ5gzqMzrLcrvbJXCz3zATp9wIZDa1pDJ41hiw6j5pW1JI804oOmVjCOW51wXVlrFDe7NfW82Lrt4rBRRHKJp2Ea1NTzYocZrg5PvT4Dnxya57T1nAAnHcZ8MRkAvHZoXshCsyF2jNWIzSxubMCqQ/O0tp4T28u72GcUAXZ5SmF7ByYkDcp3h0FXlfVGHFp/gF5NvSCA5w6jZpW1phxay5pawdjpbSPkStuvpHPAE20PNHTSGDaAmwWNZAg88uiM6OwonXFLHuMmW1z/lmf9lVwfVEjm9nguRRNpjJQpsG2qXIxls7PmBhcyt/chV9q+Js68L+yFd1IeTd6Q5AKZ2/vYsLe60a1zAmmdbamb8iS8rSOx9pc/R7g2g3SLn20OWfU0OS5eFckJ98gHiYS9ee/f2HwgLzd5UKhIGE/52FEpJwzZ0NRAsv3bMjqhS+b2dnSdBmlyxuxNsNdurlxOqLs5Dtv88N7TNC1Lb29L4n/NU6mdUA/QA5wAzgKXgDO2l/AaXBkntAKwxz66lKdEahOdYFIdhx6zw50wY6oI4TlhrbD/F7UxEtr7hFYwJ6yYqoPbCaoPtoXFNloyePn278vvmM1v04JX98xHIpFIJBIx2vwFyuC9DcG7PH8AAAAASUVORK5CYII=">
+        </button>
+        <button id="fotoPerfil" onclick="toggleMenu()">
+            <img
+                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAAE/klEQVR4nO1YW0xURxg+qa0m1adenrwkmpg0oTZpGmtB2/hA0kAooUkNpk0fIK201dpEt4hE0iZNkAephoK7y1baN4imtRR3kcglbQFr1YUg0JU5W257Dqhcd84CC7JfM2fDsusu7Jm9+bJ/8iWTmTP/fN8//5mbICQtaUmL2gBscJC5VIkoxRJRfpFEpU8mypQk0kUGb1npVduIUjw+4HoLwDPC0zYHmdsuE1omi9Qhiwr4QEdlQs+ODri2JZy4POB8WRapURapm594kBC3RKhesjlfSgh5yU4/lIkyGT3xIEw4RHo4bsRxB8/JIjXFgTj8IRFqYGPFlLwk4XmJUEu8ycurIsxszJiQZ9FIJHl5BUS50duLjVEL4E2bh0OTUCYGsKTcgWe+E3C3q5ib7otkJvRRkZfs9COeAekjAix0+EgHogPTsgNjdieXCAehuRGRd/TPviiLyiOtA7EIhyYeiOX5m5gZG+ZJpcmIlljvOq9tEOcDuyby/pgZH9KeSqJSxUWe7Y5aN6nx/6bhWVjNda1gfR4MTmsUQd2SfW6H9uirxwOteS+uT3bWDIjfA52fAdZCYOEvX5vzoZ0jlehZTeTZIUs9p2h0vEitwaRnGoCBcqDjCNCYDTS+t4qeEsDtFeF2dnP80NTBDo1hBbBTJc8q4VsqZ64B9gvAzc+DST+Je9+qfR67bnOtSGN215thBbDjLo9TX9TXIxwK7D+Y7+QSINmVIi35/2uiBMDdzidAVK6EnwFR6eVx6u43BgjQ5+2GIW93EOGgevYP2C7xCSBKj4YZ4Dsqe0ybAVuZjxgjacgPFhBUbyuDx7SFSwDbWMML4Lyk0OtfA5ZM/hQyZ4I2FXIKoAsxF8Cw1PoFt4DF1qO80dcoIILbFr31I7cA+jdf/staU4j3J2YYtznguf6BZvKepkMYvy9xC9D4E/MtoyuY7roRfgNTkY2p7uZIog9tyyjnRhYkwpKxNnlLBqa6WyLyLXsFnAorgD06RToAA0ybgLpXgPp3AHOGF6zM6kybIvYrM9hde7Ue5kYiFmAQ1kXE5Akd1vyax46uPM4H783izCctSE+5BFfF5jXJs7b0lBp8U9CGoT6+q6Us0lIhHhcac42IE+8248Cuary+tQIdurQ1BbTr9qvfvL2rGiczW2D5Wet9gC6M3HdtFXiMvQis53TkXyeqdHdRkNaoImdPrUru472nsVi1MYg8q2Nt7JucPXW+fvoiK0ZtYWfjB4HXRkZmXljrUi8RJYA8w5E0C/bvNKoE81ML0XPmNbgqtqhgZVbH2tg37Fv/vhcLreuRn4j43ZS9VYZyWm8gAQRWkLevwSciFA7sNCJ/X0PIvvUGElLAGKGHhGiMvVX6Oxzum8XJjOaQJNSZSLWo6cTy/I1tlSpYOefVWnyaGhj5Aj98lX4Dg72zgTMtKpVCtMbuobJIr/qibwwd/VigwbQ6CxKh19CGZ6MW4Pe4a2aOy4/eipuA819678gSoQ0xe9x94pFXX5TdFjcBRe+3qWkTs8iHsp++6ynTZbUsx5r8iYzm5eqSrnNCIux3o33H+eP/dB872BQ18WMHm3Dh+G3r1RqyXUi0XakkKRcL77bpMpsf8xLXZbUs6U9ZW5kP4Wnb5cvYUFfef9hQ3FVfmt85WpL7p0uX1brMosvAyiW5f7hK8ztGDae7fqs915fL+ghJS1rShGjtf0hTH0SUyoApAAAAAElFTkSuQmCC">
+        </button>
+    </div>
+</header>
+
+{% include './components/buscadorMovil.html' %}
+
+<script>
+    function mostrarBuscadorMovil() {
+        var buscador_movil = document.getElementById('buscador_movil');
+        if (buscador_movil.style.display === 'none' || buscador_movil.style.display === '') {
+            buscador_movil.style.display = 'block';
+        } else {
+            buscador_movil.style.display = 'none';
+        }
+    }
+</script>
+
+{% include './components/menu.html' %}
+
+<style>
+    #fotoPerfil {
+        padding: 0px;
+        margin-left: 10px;
+    }
+
+    #fotoPerfil img {
+        width: 90%;
+    }
+</style>
+
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/header.css') }}">
+
+<script src="{{ url_for('static', filename='js/cambiarNombrePagina.js') }}"></script>

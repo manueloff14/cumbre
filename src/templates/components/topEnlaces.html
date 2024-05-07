@@ -1,0 +1,26 @@
+<ul class="topEnlaces">
+    <h4 style="margin-bottom: 20px;">Top Enlaces</h4>
+    {% for link, count in links %}
+        <li class="topEnlace">
+            <div class="topEnlace_izquierda">
+                <img
+                    src="{{ link.favicon_url }}">
+                <div class="topIcon">
+                </div>
+                <div class="topEnlace_info">
+                    <h3>
+                        <strong>{{ link.title }}</strong>
+                    </h3>
+                    <span>
+                        <a target="_blank" href="/{{ link.short_link }}">cumbre.icu/{{ link.short_link }}</a>
+                    </span>
+                </div>
+            </div>
+            <div class="topEnlace_derecha">
+                {{ count }}
+            </div>
+        </li>
+    {% endfor %}
+</ul>
+
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/topEnlaces.css') }}">

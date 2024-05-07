@@ -1,0 +1,28 @@
+<div class="tarjeta">
+    <div class="tarjeta_superior">
+        <span>Tarjeta</span>
+        <strong>Banco, Cumbre</strong>
+    </div>
+    <div class="tarjeta_number">
+        <span style="font-family: 'Times New Roman', Times, serif;">{{ card_number  }}</span>
+        <button>
+            <img
+                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAABUklEQVR4nO2ZTUrEQBCFC1zoAdQBUUcPkzmDXsEL6BX0AP4geIC5xTCil1BwFBfiytm4MPBJQY8UjQvpdDcTrG+XDry8l7xOoCLiOM7/BdgDroAXoKUbbdC5VN0a5kfAnDLMgaak+f2C5hd8AMNSAbQ2NbgoFUC7WoNZLsPrwNgcd92wf6XNYX4APKqaWauGZAhwE4v1LcB73wP84AESEH8CBq9QAuIVMniFEhCvkMErlIB4hQxeoQTEK2TwCiUgXqHfK9SrqURrBFfC2nOlAE85Arwawa2wpgPYGpznCDA1ggdmKl1jNrqbI8CJEZ2a9SZcpJT5prP5YHQH+DTiR+bcUAewOsPM9H9gprXJcuejEGfmQl82RC8A1oD76I7dAofA9uLttNQAm8Ad5RjXCLEKnEZ7IgcPOsIvHiDa2MfAJHwnUjfwG3ANbFQz7ziOLBXfE/s98Op6tFYAAAAASUVORK5CYII=">
+        </button>
+    </div>
+    <h1>$ {{ saldo_ajustado|format_number }}</h1>
+    <div class="info">
+        <div class="info_izquierda">
+            <span>Fecha de salida</span>
+            <strong>{{ fecha_expedicion }}</strong>
+        </div>
+        <img
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAABHklEQVR4nO3YwU4CQQzG8RoNL4QcAF8Pz4b4CBI9qVkfCXkCDl42/E3jjpmQYZcDyXTJ9zuSbmhpl8nUTERE5NoAD8AbsANa6mmBb+AVWJ6T+B3wTFxrz7GvgMjJJ+u+scl9AlNgYpUAE+AeaLK8DsCiFOwznzQWDPCe5bcpBfgLm0wtGP46kWxLAfm/TbWxGRinpC0F/LOg6MuRkTEVUJlddQcsKFRAZagDlaEOVIY6cEHAI/Bz4pzyz1eFZ2IcZMANsB84bPdhC+i+b3XpDoz+QrMLfqWcDV0pfXmUfFkwwEeW30spYHk0h01Xde21ysx/0KO1yvzUA775iu5paLUYtYiDJw/cntO6hS+P/GUJsNzddrmUx0ZERMRG7BfuGyJYdmeHOAAAAABJRU5ErkJggg==">
+    </div>
+    <div class="tarjeta_inferior">
+        <span>{{ username }}</span>
+        <strong>Tarjeta virtual para Cumbre</strong>
+    </div>
+</div>
+
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/tarjeta.css') }}">

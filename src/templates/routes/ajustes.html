@@ -1,0 +1,104 @@
+<!-- settings.html -->
+{% extends 'base.html' %}
+
+{% block title %}Ajustes | {{ super() }}{% endblock %}
+
+{% block content %}
+
+<style>
+    .ajustes {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+    .forms {
+        width: 50%;
+    }
+    .forms form {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 20px;
+    }
+    .forms form .form_text {
+        margin-bottom: 10px;
+    }
+    .forms form .form_text p {
+        color: rgb(214, 214, 214);
+    }
+    .forms form .form_text span {
+        color: rgb(128, 128, 128);
+        font-size: 12px;
+    }
+    .forms form input {
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid black;
+        border-radius: 10px;
+        color: white;
+        background-color: rgb(35, 35, 35);
+    }
+    .forms form button {
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid rgb(255, 255, 255);
+        border-radius: 10px;
+        color: white;
+        background-color: rgb(59, 59, 59);
+    }
+    @media (max-width: 1012px) {
+        .forms {
+            width: 70%;
+        }
+    }
+    @media (max-width: 828px) {
+        .forms {
+            margin-bottom: 50px;
+        }
+    }
+    @media (max-width: 561px) {
+        .forms {
+            width: 90%;
+        }
+    }
+    @media (max-width: 434px) {
+        .forms {
+            width: 100%;
+        }
+    }
+</style>
+
+<div class="ajustes">
+    <div class="forms">
+        <form action="/change_password" method="POST" class="change_password">
+            <div class="form_text">
+                <h1>Cambiar contraseña</h1>
+                <p>Puedes escribir tu contraseña actual, o tu contraseña temporal</p>
+                <span>Por su seguridad, a lo que cambie la contraseña se cerrará la sesión</span>
+            </div>
+            <input type="password" name="current_password" placeholder="Contraseña actual">
+            <input type="password" name="new_password" placeholder="Nueva contraseña">
+            <button type="submit">Cambiar contraseña</button>
+        </form>    
+        <form action="/send_verification_code" method="POST" class="delete_links">
+            <div class="form_text">
+                <h1>Eliminar enlaces</h1>
+                <p>Para eliminar tus enlaces enviaremos un código de seguridad a tu correo</p>
+            </div>
+            <input type="email" name="email_confirmation" placeholder="Confirma tu email">
+            <button type="submit">Enviar código</button>
+        </form>    
+        <form action="/delete_account_request" method="POST" class="delete_account">
+            <div class="form_text">
+                <h1>Eliminar cuenta</h1>
+                <p>Para eliminar tu cuenta enviaremos un código de seguridad a tu correo</p>
+            </div>
+            <input type="email" name="email_confirmation" placeholder="Confirma tu email">
+            <input type="password" name="password_confirmation" placeholder="Confirma tu contraseña">
+            <button type="submit">
+                Enviar código
+            </button>
+        </form>        
+    </div>    
+</div>
+{% endblock %}

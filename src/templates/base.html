@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title>{% block title %}Cumbre{% endblock %}</title>
+    {% include './components/head.html' %}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/base.css') }}">
+</head>
+
+<body id="desktop_base">
+    <div class="cargando">
+        <style>
+            .cargando {
+                position: fixed;
+                width: 100%;
+                height: 100vh;
+                z-index: 9999;
+                background-color: rgb(7, 7, 7);
+            }
+            .cargando_content {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 200px;
+                text-align: center;
+            }
+            .cargando_content img {
+                margin-top: 20px;
+                width: 150px;
+            }
+        </style>
+        <div class="cargando_content">
+            <h1>Cargando</h1>
+            <img src="https://img1.picmix.com/output/stamp/normal/2/1/5/2/362512_caf8a.gif" alt="Cargando...">
+        </div>
+    </div>
+    {% include './components/aside.html' %}
+    <div class="pagina">
+        {% include './components/header.html' %}
+        <div class="contenido">
+            {% block content %}{% endblock %}
+        </div>
+    </div>
+    <script>
+        setTimeout(function () {
+            document.querySelector('.cargando').style.display = 'none';
+        }, 0);
+    </script>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/mediaQuery.css') }}">
+</body>
+<script src="{{ url_for('static', filename='js/redirigirMovil.js') }}"></script>
+
+
+</html>

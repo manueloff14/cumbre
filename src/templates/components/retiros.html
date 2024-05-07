@@ -1,0 +1,25 @@
+<div class="historial">
+    <h2>Historial</h2>
+    <ul class="retiros">
+        {% for transferencia in transferencias %}
+            <li>
+                <div class="retiro_izquierda">
+                    <img
+                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAABM0lEQVR4nO3TzSpFURQH8OMmA0U+kqSukUcxUTIyMMczeAVlLuZSBgYykVcwM5OBIgOJjCTlJ191w73OPvfce6j1m++11v6vvbMshBBCCCGE0AkYQB21LvbsxRT62ynShw08eneOxVIn/d6zB0u4+uj5gLVC4WHdz/Yw3oHh6zhs0nO1SME7zd2UtQ3vqS/jvkW/s9SiNTy1KFjKNn5JvdF1keJH8kneRs7UG+0UucA0LuSXaxsJqX86xWTyBT6aDWFTfq//ZqVFvQXcJtTbxXCh4b80nsVlQuODxtQwgf2E81eYa3vwL5cYxXbCEG9/I/GtP2MLg6UO3+Y2qku9xL/RnbdewTa6l3oHtlFN6iVso/rU29jG30q9GczjpGHwY8xk/w3GMFL1HCGEEEIIIYSsmReB0tNIyGXASQAAAABJRU5ErkJggg==">
+                    <div class="retiro_texto">
+                        <h3>Cumbre</h3>
+                        <span>{{ transferencia.fecha }}</span>
+                    </div>
+                </div>
+                <div class="retiro_derecha">
+                    <span>
+                        <strong>- $ {{ transferencia.dinero | round(2) }}</strong>
+                    </span>
+                    <span>Exitoso</span>
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/retiros.css') }}">

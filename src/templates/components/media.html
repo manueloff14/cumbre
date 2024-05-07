@@ -1,0 +1,234 @@
+<!-- enlaces.html -->
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title>Acortar | Cumbre</title>
+    <link rel="shortcut icon" href="/static/img/favicon.ico" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" type="text/css" href="/static/css/base.css">
+</head>
+
+<body id="desktop_base">
+    <div class="cargando">
+        <style>
+            .cargando {
+                position: fixed;
+                width: 100%;
+                height: 100vh;
+                z-index: 9999;
+                background-color: rgb(7, 7, 7);
+            }
+
+            .cargando_content {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 200px;
+                text-align: center;
+            }
+
+            .cargando_content img {
+                margin-top: 20px;
+                width: 150px;
+            }
+        </style>
+        <div class="cargando_content">
+            <h1>Cargando</h1>
+            <img src="https://img1.picmix.com/output/stamp/normal/2/1/5/2/362512_caf8a.gif" alt="Cargando...">
+        </div>
+    </div>
+    <aside>
+        <div class="logo">
+            <img src="/static/img/cumbre_logo.png" alt="">
+            <h1>
+                <strong>Cumbre</strong>
+            </h1>
+        </div>
+        <ul>
+            <button id="btnAcortar" data-ruta="/acortar" class="btnAside" onclick="irA('/acortar')">
+                <img
+                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAAB8UlEQVR4nO2ZTU7CQBiGCf4sXPqzAo8h0YMYjB4EwwHAvRI0HsGICxEXnkKjB1BZCbgGN4/5ZEwaIuGbztAOsU/SpElh5n2b9vtrLpeRkeEMsATsAVXgGngBPoEvc8j5s7kmv9kF8iEI3wZOgC72vAN1oJiG8C3gAhjhzghoAptJiT8EBvinDxzMU/gKcMn8OZe9fItfAzokx53s6fPOJyn+lwdg1YeBJB6baTRdxR+RPuW44jeAXtrqGUc8+xBr4rwLbaAgicrDO9SIk2Fdk1RxYj0XhlYZ25QHTvyxpit1rfi8qVNCM9CVolFjQKpKAjQglDQGpNwN1cCxxkArYANXGgPSeIRq4EljYGAT52cuOHu/okWe6GkW1MZ/b50U+jwx/BcGBsrFOj5MMBZ/7/MRWviXuLXoYbQasIGKxoAMnUI1sKMt5t4CNPCqnuaZiVloBmoq8ZHsGFpDU1AbMJvKuM+FnzxhGeencWol3hhYD6Sp78eem8qsMm31wH4s8RETMqtMizMn8ZGPFzcpiG8Dy84GIsNdGbgmxa234e7EkNc1Mmk483bnpxgpzyk6fTi/sJZz04ZJMK4MJc5L2E5E/ISRgik74tRO8p+aj77ahxEpAEsyt5GaXRoP09mNzCHnj+ZaRarKID6zZmTkFp9vxjppGihGUiQAAAAASUVORK5CYII=">
+                <span><strong>Acortar</strong></span>
+            </button>
+            <button id="btnPanel" data-ruta="/panel" class="btnAside" onclick="irA('/panel')">
+                <img
+                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAABU0lEQVR4nO3Yv0oDQRDH8YloEATBwsJGGwttRJ8gvZ1iY6WVr+Ar+AoBCztLO8U/nS8gaWzE6rBTEIQkSvzKwYLCcfGy2budI/OBbQKZnd/t3JGciDGmFEALeHarJXUCHAGf/PoCjoGGaAbMAmfkOwfmRCNgFejwv0dgXTQBtoE3insHdjQ03nCzPWB038AJMBWr+XnggvFdAgtVN7/mZjmUJ2Cjqub3gQ/C6wKHZTY+7Wa2bG1gJnTzi8Ad1bkHlkI1vwUkVC9J9x63+c0Rn++hvXrf3G7mH4iv43VPpE8E9DjwCXCNHlc+AV7QI/EJ4PP7piwDnwCqiAWITOwEIhM7gQk6gS5w6v47/F3pZ706BNgdUnOvDgGaQ2o21QeQSHUzLEAOO4GibIRy2AhN0gj1PfbpxaqbAdx6bHQTq24GsJJ+seAV67vXMMux6hpjpJ5+ANIc0C46l76aAAAAAElFTkSuQmCC">
+                <span><strong>Panel</strong></span>
+            </button>
+            <button id="btnEstadisticas" data-ruta="/estadisticas" class="btnAside" onclick="irA('/estadisticas')">
+                <img
+                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA2UlEQVR4nO2WQQoCMQxFcz8VDyWClxr1SjrunxRnJXRayjST0f+gy4S+pnxiJoQQQgQCOAJ34DWdG3CwLQBcyHO2Dbx8ib1Fhc+3KXG1qABjhcDTokIlFhUksHKeE2kCLXlOFIHWPCeQQFOeE0igKc8JJNB0ESTwqxPAKc/pIeCZ5ywt4J3ndBBwzXM6CLjmOR0EXC+CBL7QBAos9WBZWht61/20wFjR77F2XZZp5ykxrF2XJS1sFQ13a9fNkha2mWanKHWzpIUt7TzTH01nqHkJ7zohhBD/yRs82IhNJrHOeAAAAABJRU5ErkJggg==">
+                <span><strong>Estadísticas</strong></span>
+            </button>
+            <button id="btnTransferencias" data-ruta="/transferencias" class="btnAside"
+                onclick="irA('/transferencias')">
+                <img
+                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAACtElEQVR4nO3YTYhVZRzH8WNlBTNOjMEoLiYIHKZFZtpGHFQwXJqUC1+wcjMQFRgoLl1Vmi+ISuSYblylQgRCihuRoEEHotlEhaUEYUiK0yLK0Y88+gxc45x77zlzX05yv3Dgcs/9P8/ve89znvOcJ0k6dOjQoVTgGbyHz3C4JMeneB/dtcL34Sfl5eeQsZrAPuVnbzWBbzKKxtswbMYzsoxWExjLKHonaTF4NyPLWF6BH9HV0vTJ/SzdccwXFvgBu9FbMMCTGMD88LlgG7OxJ2bJLTBcsNM5GMFERVsTcVruK9jmcEsEsADXZPM7XiylAHpxRW1+w7NlFNivEXN5swTwMt7AEyl1T+GvHAITaTc2ZmItFjZUIIafjN8fTKlbJj9DKe0ciucmKyUaIRD++SnOpNRtLCCwIaWdsxXnX2+kQLi0B2MHC1Lq1hcQWJcxi4U+DlQO1abfxFhaQGBJjvabLhCu0J85wt8MNUlZBGLtrhwCu3K2PdwKgR5criN8+E1PKwRGMJizo4E61vkDOdscjFlyCwTu4qOkTWBnzDCt94HAqy1NntzPsiojSyGBo1jc4uNYRpZL1QS+VH5OVhNYWbHmKSN3sKLW2FuD73FbebgbM62u8xbq0GFa4AN8i/M4h1P4Ij5JD8UHzNa4jB7Cc3kWZzmzjFUcL9RT8Pw0Zoiw6zCKI3E3eXnRfaUp/tPH4qQWmIXrGsvV+IzZEl4V8VjTBALox+Y4lLbjwzhswhD6HCdwAb/gnwJCN/BV3P/sT1LAInxcSCAPmIG5eAWvYRuOx3n73zqFvsOOqZUqNsUhqekCdbypvYQ345I4bBTX4mJ8Y9N2gQypeWFHIi4Q/5CPh/aL2g4ej9PwJ/i1Rvi/8XRSVjy4l5bFKfhWisCO5P8CuvA2TuNrvNXuTB0eWe4BI0A5bCUqfbcAAAAASUVORK5CYII=">
+                <span><strong>Transferencias</strong></span>
+            </button>
+            <button id="btnEnlaces" data-ruta="/enlaces" class="btnAside" onclick="irA('/enlaces')">
+                <img
+                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAABuUlEQVR4nO2Xu0oDURCGVyKkkGCjryGaRo2FVmoUvBc+RZo8hKABCVhpYSFioy+hrdgpxihCoqCNSBovRD85ssUynLCXZJMt5qv/mf3ncM7MrOMoiqIoiqIoSiIB0sA6cALcAA1aUwfyAXIuAk8tcvwCr8AVUAJy7ZhfBR4IRy1AXlNoGC6AbBjjfcB2yI/EWYDhCygELWCXaNSA+QD58xGLMBT9kq+599DLJ1AGxoEBJ2aAIbfIU4uXH2C6VWA/8CgCzEmNOD0CmAXehac7IGUTbwrhBzDaE+cezIkDTeFt2SY8EqKykxCAA+Ht2CaSLXOijX4ehrrf/ACmRMytTSTvWsYnadROErr9Ahmhb9hEjQQXMCj0bzZRRYgmY+znoeYHkBMxFZvI7Dte9p2EAOwJb4c20YoQNVsOjS4CZN1h6mXDJkwBVSE0D3uuJ86df09jwLPwdG8dZG7AjDuuvZhxfgYsAMNdMJ0x78+9Nt8WL0t+CYpEoxP/A36Ugp5CwV1hk7JOG7bMqh+oAM/jOaf3BVR9r02AHrwDXAIvlhW30/8DDeDa7DvuX2E6snlFURRFURRFceLkD6tC6Sq/CBtVAAAAAElFTkSuQmCC">
+                <span><strong>Enlaces</strong></span>
+            </button>
+            <button id="btnAjustes" data-ruta="/ajustes" class="btnAside" onclick="irA('/ajustes')">
+                <img
+                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAACWElEQVR4nO2Zy2oUQRSGy4wmCxOFLIImbrIxYoQo5AW8bL0sjU+gRBLUuNa4iGjiC6jPorg1OzMxgmSngjtxDGTE8MnRCjSDk6pzquNUQ//QMBQ9/2Wm+vTp087VqFGjNADXgC90x2fgqssRQB/wlTDknD6XG4BTxGPC5QbghiLAjMsNwLIiwFOXC4ATwDOgpQjQ8t8Z+x8GR4HHwANgqrB+CHgEtLGjDSwKV4H3rF8TzdFU8/3Aeofoey+wSnlY9T/GRse6aPenBLhP77FgNT8CfOu1e+A7cNwS4CX54IXW/Dlgh3ywA0xrArxOEHsHzAOTwGF/TPq1tQTeV7HmjxoFtoFbe/U5QAOYTSi9QzEBDvyjdMaYP6/4hy8YQqyJt1iBceCDgvxmrPmCxm0Fv3gZ1woMA28i97y6PfbbqRnBLx6Gtfy7IgPAx4DAvIn8L/+dALdoD1j5d0U2AyKnE7jPBLg3k8x7ka2AyGAC91CAe6uMAD+SS1t37iMB7lYZAaq7hajyRUx8GZUbTMNYRtf3pYwabmSzhgBz+3IjM7YS0hZcVJi/BPxUajSjWomEZq7t24NGYNvMGczrKp60rtjR9BenVJhBf8jnu4Z/Vt9OFyYDv6jqA41AHuPIB89dxR/qj6kD+BALvXYP3DOZ32OwteGHUGUOtt76YZkMzToLgn2wVRgtLgEP5eLuGC0uJo4Wt/3I8mCBd8qvLZnmQYaAY8bh7kry7LNMyMhcEeCJyw3AjCLAdZcbgAlFgJMuN1D1l3wC4Ip/ldoNn4DLf06uUaOGKwO/AfKVvmEdXLXsAAAAAElFTkSuQmCC">
+                <span><strong>Ajustes</strong></span>
+            </button>
+        </ul>
+    </aside>
+
+    <script src="/static/js/cambiarFondoBoton.js"></script>
+
+    <script src="/static/js/irA.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="/static/css/aside.css">
+    <div class="pagina">
+        <header>
+            <h1 id="nombrePagina">Panel</h1>
+            <div class="sidebar">
+                <button>
+                    <img
+                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAACi0lEQVR4nO2YTW8NURjHp1YWIrnqZd+qSr+HRJu+IDaCWBDdqFARXRB8gEr6AdgQkVZILXTREi+xIBV34bW2ImjUVe/F/OSJJ3IymXvnzO095zQxv+XMmXn+/zNnnvOcJ4oKCgr+T4CNwFFgFHgJVPjLHDADXAUGgQ3RUgLYCtwhH3eBrqUw41MsjmvA2hDie4B5GsNboNOn+P3AbxrLAtDrQ3wv8As3fAc2uxTfBnzBLe+Bda4MTOKHcRfit+GXzkYbuOXZwO1E/JbFiO8gDK2GhnFgR70GDgUycMTQcAyIgQP1GBgLZOCKoaFLr8W5vwTwPJCBZ4aGVuP6Zylj8hiQrT4EHw0NqxL37gFNtga+BTLww9CwPOX+dlsDrwlDxdBQSrl/39bANGGYMTS0VBnTYWPgHGG4lJKFkgzZGNhFGAYNDafqrpuANVrq+iQG1hsarlcZ9yLTgL7ggmcDN43YzTUy4aytgd2eDfQYsQ/apNosAyMexU8YcZcBj2uMtf4CjzyJryTW/r6M8U9txJccHOLTkBjdibjvMp4Zsz3Iu+YnsNeI2ST7gMVzAzYGhh2L/5Ts0gHHLVNtW+hSYiJ5XAT2qLgsJjPF6wvnq6zXsmYn2anP59jsYm1J9qXEOmEpXui3NXBSO8zTupzknyiljFsN7ATOAg+AV3r4eKOHolHN6e0pz8pmdZF8jESh0Z9Vlsws+SmHFL5Se6y1NqksZBk3uxS5QmdYllY7sEmryqkGtij7XBroBj7glmFnBtSEzPwNhwYeOjVgGNki7cIcKTLWZnK/pupylXLmX+fClxH5IoeBy3IY0VpnQVs3T7SJNpC2w2prRVL4GZl54Ctw2quBgoKCyDl/ACBXbigpS0dtAAAAAElFTkSuQmCC">
+                </button>
+                <button style="display: none;">
+                    <img
+                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAABcUlEQVR4nO3ZvS5EQRTA8fGRdVWi4yE8guiFChGN2tpVbSFUEk9AhJfQiweQ1bChUoj4SHyXJJtg/3KzoyP2zp6Zc5f5JVvv+d87xdlZY6IoEgF0A2PABrAPXADvQAO4Aw6BLWACSExeAAmwAlzRuidgHRjQHn4cOMfdIzCrNfyqPR4StoHeUIN32bMsbTdIBFDBnx3fw48Cb/g152v4HuAM/x6AQR8B84Sz5iMgxNP/8gwUJIcfIbxJyYBlhYBNyYA9hYADyYBThYB7yYB0+QqtLhnwoRCAZIAKEwOs+AYcGSkoMYK/ebUkEgFlxYBSu8P3ATeKAbdAfzsBJfQtug5fAC61pweu05PgElAkPxY6ZQP9Sc0loE5+vP7LNzAteHXYjgYwlTnARszYN+H7Mus76XeepA/Safio0wBVNG4cpABLGQKKJm9orh61FoY/Er02lAQM/xJxDAyZPKO5gpftv5Iv9lO1m232pSyKor/tE3FcQZLw8RjWAAAAAElFTkSuQmCC">
+                </button>
+                <form action="/search" method="get" class="buscador">
+                    <input type="text" name="q" placeholder="Buscar aquí" id="query">
+                    <button type="submit">
+                        <img
+                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAC9klEQVR4nO2au2tVQRCHN4mkiwYrn1XEKpoiRqxCFDS2ghZqowiptEljYxWLdEIgIEKsbNMFAhIICooiUav4KAJBO21MUDBR7yfDWeEacnf3njvnnkf2+wP2NztndmZ29hgTiUQikUgkEskOYD9wDBgEjgMHgQ5TVYCjwB1gEVhje34Az4C74hRTBYDzwBPSsQRcBDpN2QCOAI/R4QUwYMoCcBlYR5efwE1TdIDbQI3smC7skSBJcu3gvilo2Nea3Mgv4CuwmcIJ46ZgCW89wGhx0DxwAzhUH8q2L7gCzAK/A9YSpw2ZIkBYtn8JnApcrx9YCFjzDdCV/Q79dd7HDNDd5LqdwGTAsbpm8gR46jHwYYvrT3jW/5hbC03S3vrCvrtFjQ5gzqMzrLcrvbJXCz3zATp9wIZDa1pDJ41hiw6j5pW1JI804oOmVjCOW51wXVlrFDe7NfW82Lrt4rBRRHKJp2Ea1NTzYocZrg5PvT4Dnxya57T1nAAnHcZ8MRkAvHZoXshCsyF2jNWIzSxubMCqQ/O0tp4T28u72GcUAXZ5SmF7ByYkDcp3h0FXlfVGHFp/gF5NvSCA5w6jZpW1phxay5pawdjpbSPkStuvpHPAE20PNHTSGDaAmwWNZAg88uiM6OwonXFLHuMmW1z/lmf9lVwfVEjm9nguRRNpjJQpsG2qXIxls7PmBhcyt/chV9q+Js68L+yFd1IeTd6Q5AKZ2/vYsLe60a1zAmmdbamb8iS8rSOx9pc/R7g2g3SLn20OWfU0OS5eFckJ98gHiYS9ee/f2HwgLzd5UKhIGE/52FEpJwzZ0NRAsv3bMjqhS+b2dnSdBmlyxuxNsNdurlxOqLs5Dtv88N7TNC1Lb29L4n/NU6mdUA/QA5wAzgKXgDO2l/AaXBkntAKwxz66lKdEahOdYFIdhx6zw50wY6oI4TlhrbD/F7UxEtr7hFYwJ6yYqoPbCaoPtoXFNloyePn278vvmM1v04JX98xHIpFIJBIx2vwFyuC9DcG7PH8AAAAASUVORK5CYII=">
+                    </button>
+                </form>
+                <button id="fotoPerfil" onclick="toggleMenu()">
+                    <img
+                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAAE/klEQVR4nO1YW0xURxg+qa0m1adenrwkmpg0oTZpGmtB2/hA0kAooUkNpk0fIK201dpEt4hE0iZNkAephoK7y1baN4imtRR3kcglbQFr1YUg0JU5W257Dqhcd84CC7JfM2fDsusu7Jm9+bJ/8iWTmTP/fN8//5mbICQtaUmL2gBscJC5VIkoxRJRfpFEpU8mypQk0kUGb1npVduIUjw+4HoLwDPC0zYHmdsuE1omi9Qhiwr4QEdlQs+ODri2JZy4POB8WRapURapm594kBC3RKhesjlfSgh5yU4/lIkyGT3xIEw4RHo4bsRxB8/JIjXFgTj8IRFqYGPFlLwk4XmJUEu8ycurIsxszJiQZ9FIJHl5BUS50duLjVEL4E2bh0OTUCYGsKTcgWe+E3C3q5ib7otkJvRRkZfs9COeAekjAix0+EgHogPTsgNjdieXCAehuRGRd/TPviiLyiOtA7EIhyYeiOX5m5gZG+ZJpcmIlljvOq9tEOcDuyby/pgZH9KeSqJSxUWe7Y5aN6nx/6bhWVjNda1gfR4MTmsUQd2SfW6H9uirxwOteS+uT3bWDIjfA52fAdZCYOEvX5vzoZ0jlehZTeTZIUs9p2h0vEitwaRnGoCBcqDjCNCYDTS+t4qeEsDtFeF2dnP80NTBDo1hBbBTJc8q4VsqZ64B9gvAzc+DST+Je9+qfR67bnOtSGN215thBbDjLo9TX9TXIxwK7D+Y7+QSINmVIi35/2uiBMDdzidAVK6EnwFR6eVx6u43BgjQ5+2GIW93EOGgevYP2C7xCSBKj4YZ4Dsqe0ybAVuZjxgjacgPFhBUbyuDx7SFSwDbWMML4Lyk0OtfA5ZM/hQyZ4I2FXIKoAsxF8Cw1PoFt4DF1qO80dcoIILbFr31I7cA+jdf/staU4j3J2YYtznguf6BZvKepkMYvy9xC9D4E/MtoyuY7roRfgNTkY2p7uZIog9tyyjnRhYkwpKxNnlLBqa6WyLyLXsFnAorgD06RToAA0ybgLpXgPp3AHOGF6zM6kybIvYrM9hde7Ue5kYiFmAQ1kXE5Akd1vyax46uPM4H783izCctSE+5BFfF5jXJs7b0lBp8U9CGoT6+q6Us0lIhHhcac42IE+8248Cuary+tQIdurQ1BbTr9qvfvL2rGiczW2D5Wet9gC6M3HdtFXiMvQis53TkXyeqdHdRkNaoImdPrUru472nsVi1MYg8q2Nt7JucPXW+fvoiK0ZtYWfjB4HXRkZmXljrUi8RJYA8w5E0C/bvNKoE81ML0XPmNbgqtqhgZVbH2tg37Fv/vhcLreuRn4j43ZS9VYZyWm8gAQRWkLevwSciFA7sNCJ/X0PIvvUGElLAGKGHhGiMvVX6Oxzum8XJjOaQJNSZSLWo6cTy/I1tlSpYOefVWnyaGhj5Aj98lX4Dg72zgTMtKpVCtMbuobJIr/qibwwd/VigwbQ6CxKh19CGZ6MW4Pe4a2aOy4/eipuA819678gSoQ0xe9x94pFXX5TdFjcBRe+3qWkTs8iHsp++6ynTZbUsx5r8iYzm5eqSrnNCIux3o33H+eP/dB872BQ18WMHm3Dh+G3r1RqyXUi0XakkKRcL77bpMpsf8xLXZbUs6U9ZW5kP4Wnb5cvYUFfef9hQ3FVfmt85WpL7p0uX1brMosvAyiW5f7hK8ztGDae7fqs915fL+ghJS1rShGjtf0hTH0SUyoApAAAAAElFTkSuQmCC">
+                </button>
+            </div>
+        </header>
+
+        <div class="menu_cuenta" id="menu_cuenta">
+            <div class="superior_menu">
+                <span>
+                    manueloff14
+                </span>
+                <strong>manueloffcabrera@gmail.com</strong>
+                <div class="free">
+                    <strong>Cuenta gratis</strong>
+                </div>
+            </div>
+            <ul class="centro_menu">
+                <li>
+                    <a href="">Soporte</a>
+                </li>
+                <li>
+                    <a href="">Términos</a>
+                </li>
+                <li>
+                    <a href="">Foro</a>
+                </li>
+            </ul>
+            <div class="abajo_menu">
+                <a href="/logout">
+                    <strong>Cerrar sesión</strong>
+                </a>
+            </div>
+        </div>
+
+        <script>
+            function toggleMenu() {
+                var menu = document.getElementById('menu_cuenta');
+                // Verificar el estado actual del menú
+                if (menu.style.display === 'block') {
+                    // Si el menú está visible, ocultarlo
+                    menu.style.display = 'none';
+                } else {
+                    // Si el menú está oculto, mostrarlo
+                    menu.style.display = 'block';
+                }
+            }
+        </script>
+
+        <link rel="stylesheet" type="text/css" href="/static/css/menu.css">
+
+        <style>
+            #fotoPerfil {
+                padding: 0px;
+                margin-left: 10px;
+            }
+
+            #fotoPerfil img {
+                width: 90%;
+            }
+        </style>
+
+        <link rel="stylesheet" type="text/css" href="/static/css/header.css">
+
+        <script src="/static/js/cambiarNombrePagina.js"></script>
+        <div class="contenido">
+
+
+            <div class="formulario">
+                <form action="/acortar_enlace" method="post">
+                    <div class="inputs">
+                        <label for="long_link">
+                            <strong>LongLink</strong>
+                        </label>
+                        <input type="text" name="long_link" placeholder="Pega aquí tu LongLink">
+                        <label for="title">
+                            <strong>Título</strong>
+                        </label>
+                        <input type="text" name="title" placeholder="">
+                    </div>
+                    <div class="comoSera">
+                        <h3>¿Cómo se verá el enlace?</h3>
+                        <div class="domain">
+                            <span>cumbre.icu</span> /
+                            <input title="Proximamente estará disponible" type="text" name="custom_link"
+                                id="custom_link" placeholder="Enlace customizado" disabled>
+                        </div>
+                        <span style="color: rgb(98, 98, 98); font-size: 10px;">Proximamente estará disponible el enlace
+                            customizado
+                            para los usuarios Premium</span>
+                    </div>
+                    <br>
+                    <button type="submit">
+                        <strong>Acortar</strong>
+                    </button>
+                </form>
+
+            </div>
+
+            <link rel="stylesheet" type="text/css" href="/static/css/formAcortar.css">
+
+
+        </div>
+    </div>
+    <script>
+        setTimeout(function () {
+            document.querySelector('.cargando').style.display = 'none';
+        }, 0);
+    </script>
+    <link rel="stylesheet" type="text/css" href="/static/css/mediaQuery.css">
+</body>
+<script src="/static/js/redirigirMovil.js"></script>
+
+
+</html>

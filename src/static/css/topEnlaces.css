@@ -1,0 +1,28 @@
+.topEnlace {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgb(29, 29, 29);
+    padding: 20px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+}
+.topEnlace_izquierda {
+    display: flex;
+    align-items: center;
+}
+.topEnlace_izquierda img {
+    width: 30px;
+    background-color: bisque;
+    display: flex;
+    border-radius: 100px;
+    margin-right: 20px;
+}
+.topEnlace_derecha {
+    display: flex;
+    align-items: center;
+}
+.topEnlace_derecha img {
+    width: 30px;
+    margin-right: 10px;
+}

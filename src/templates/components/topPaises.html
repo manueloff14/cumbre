@@ -1,0 +1,23 @@
+<ul class="topEnlaces">
+    <h4 style="margin-bottom: 20px;">Top Paises</h4>
+    {% for country, data in countries %}
+        <li class="topEnlace">
+            <div class="topEnlace_izquierda">
+                <img
+                    src="{{ data.flag }}">
+                <div class="topIcon">
+                </div>
+                <div class="topEnlace_info">
+                    <h3>
+                        <strong>{{ country }}</strong>
+                    </h3>
+                </div>
+            </div>
+            <div class="topEnlace_derecha">
+                {{ data.count }}
+            </div>
+        </li>
+    {% endfor %}
+</ul>
+
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/topEnlaces.css') }}">

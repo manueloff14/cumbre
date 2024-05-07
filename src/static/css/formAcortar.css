@@ -1,0 +1,63 @@
+.formulario {
+    display: flex;
+    justify-content: center;
+}
+
+.formulario form {
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.inputs {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.inputs label {
+    margin: 10px 0px;
+    font-size: 17px;
+}
+
+.inputs input {
+    padding: 10px;
+    color: white;
+    background-color: rgb(49, 49, 49);
+    border-radius: 10px;
+    border: 1px solid black;
+}
+
+.domain {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.domain span {
+    background-color: rgb(49, 49, 49);
+    padding: 10px 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.domain input {
+    background-color: rgb(49, 49, 49);
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+}
+
+.domain span,
+.domain input {
+    width: 20%;
+}
+
+.formulario form button {
+    margin-top: 10px;
+    background-color: rgb(39, 39, 39);
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+}

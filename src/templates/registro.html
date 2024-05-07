@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    {% include './components/head.html' %}
+    <title>Registro | Cumbre</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/acceder.css') }}">
+</head>
+
+<body id="desktop_base">
+    {% include './components/accederHeader.html' %}
+    <div class="contenido">
+        <div class="pagina">
+            {% include './components/bienvenidaForm.html' %}
+            <div class="formulario">
+                {% include './components/formRegister.html' %}
+                {% include './components/proximamente.html' %}
+                <div class="iniciar_crear">
+                    <span>¿Ya tienes una cuenta?</span><a href="/login">INICIAR</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="errores_fondo">
+        <div class="errores">
+            <div class="erores_superior">
+                <h1>¡Error!</h1>
+                <button onclick="ocultar_error()">
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAABWUlEQVR4nO3ZP0pDQRDH8S3ttPQYNrY2SW4g2HgGb6GQ0sY6JJ1YC2LviSRNgt/wIMFA9v3Jzu7sPJjfAWbeh5e3O0NC8Hg8Ho+1ABfAC/AOTCr0v933fgWuJIWe+c8GeMj6pN29J8D6qP9CUuzjqJAahlNEkx9Jwdn+4dUwxBF/wKO08H0EsxUXjve6A34jiKdcDYpjiiM0MGqIkhh1RAlMNUROTHVEDowZhARjDpGCMYs4B2MeMQQzGsQhzQzWMputR4PoeTPjQgzAjAfRMYofvhm15UyUlg/75AAIlkP7UrSNHAA23wwdR6zmcibKkHvCPIYzLjuzGBJubHMYBGOHGQwZZqfqGDIOgNUwFJhi1TEUHMXVMCjsE8UxKC5FlMIAN9pLEe3L2VRSdKmJ6MF8h9QAc21EB2YVUgNcAm/AV/P7TS6U3n8KfDb/VgHX2v09Ho/HE/qyA60avkZo2XAsAAAAAElFTkSuQmCC">
+                </button>
+                <script>
+                    function ocultar_error() {
+                        document.querySelector('.errores_fondo').style.display = 'none';
+                    }
+                </script>
+            </div>
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            <ul class="flashes">
+                {% for message in messages %}
+                <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+            {% endwith %}
+        </div>
+    </div>
+    <script>
+        window.onload = function() {
+            var listItems = document.querySelectorAll('.flashes li');
+            var hasContent = Array.from(listItems).some(li => li.textContent.trim() !== '');
+
+            if (hasContent) {
+                document.querySelector('.errores_fondo').style.display = 'block';
+            }
+        };
+    </script>
+    <style>
+        .errores_fondo {
+            display: none;
+            background-color: rgba(0, 0, 0, 0.591);
+            width: 100%;
+            height: 100vh;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+        }
+
+        .errores {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: red;
+            z-index: 100;
+            padding: 20px;
+            border-radius: 20px;
+            width: 200px;
+        }
+        .erores_superior {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        .erores_superior button {
+            background-color: transparent;
+            border: none;
+            display: flex;
+        }
+        .erores_superior button img {
+            width: 20px;
+        }
+    </style>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/mediaQueryForm.css') }}">
+</body>
+<script src="{{ url_for('static', filename='js/redirigirMovil.js') }}"></script>
+<style>
+    @media (max-width: 787px) {
+        .pagina {
+            width: 100%;
+            padding-top: 80px;
+        }
+    }
+
+    @media (max-width: 471px) {
+        .pagina .formulario {
+            width: 70%;
+        }
+    }
+</style>
+
+</html>

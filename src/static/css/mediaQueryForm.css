@@ -1,0 +1,15 @@
+@media (max-width: 1254px) {
+    .bienvenida img {
+        display: none;
+    }
+}
+
+@media (max-width: 1054px) {
+    .pagina {
+        display: flex;
+        flex-direction: column;
+    }
+    .formulario {
+        width: 60%;
+    }
+}

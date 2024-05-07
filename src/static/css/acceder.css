@@ -1,0 +1,142 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+    text-decoration: none;
+    color: white;
+    font-family: 'Jost';
+}
+
+body {
+    background-color: #1F1F1F;
+}
+
+header {
+    padding: 20px;
+    color: white;
+    position: fixed;
+    width: 100%;
+}
+
+header .logo {
+    display: flex;
+    align-items: center;
+}
+
+header .logo img {
+    width: 40px;
+    margin-right: 10px;
+}
+
+.contenido {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.pagina {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 60%;
+}
+
+.bienvenida {
+    text-align: center;
+}
+
+.contenido .pagina .bienvenida h1,
+.contenido .pagina .bienvenida a {
+    font-family: 'Playfair Display';
+    font-style: italic;
+}
+
+
+.contenido .pagina .bienvenida a {
+    color: #4C2EA5;
+}
+
+.formulario {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form input {
+    padding: 15px;
+    border: 1px solid #3B3B3B;
+    background-color: #252525;
+    border-radius: 10px;
+}
+
+form .debajoInput {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+form .recordar label {
+    color: #8A8A8A;
+    padding: 0px;
+}
+
+form .debajoInput a {
+    color: #8A8A8A;
+}
+
+form button {
+    background: linear-gradient(to right, #4E31AA, #3A1078);
+    padding: 15px;
+    color: white;
+    border: none;
+    border-radius: 20px;
+}
+
+.formulario span {
+    text-align: center;
+    color: #8A8A8A;
+    font-size: 10px;
+}
+
+.logos {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logos li {
+    border: 1px solid #3B3B3B;
+    background-color: #252525;
+    padding: 10px 30px;
+    display: flex;
+    border-radius: 10px;
+}
+
+.logos li img {
+    width: 15px;
+}
+
+.formulario form input,
+.formulario form button,
+.formulario .debajoInput,
+.formulario span,
+.logos {
+    margin-bottom: 15px;
+}
+
+.iniciar_crear {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+}
+
+.iniciar_crear span {
+    margin-right: 10px;
+    font-size: 13px;
+}

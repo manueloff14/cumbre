@@ -1,0 +1,53 @@
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/formAcortar.css') }}">
+
+<div class="formulario" id="formRetirar">
+    <form action="{{ url_for('procesar_retiro') }}" method="post">
+        <div class="inputs">
+            <label for="long_link">
+                <strong>Número de cuenta</strong>
+            </label>
+            <input type="text" name="number_account" placeholder="El número de cuenta">
+            <label for="bank">
+                <strong>Banco</strong>
+            </label>
+            <input type="text" name="bank" placeholder="¿Cuál es tu banco?">
+            <label for="account_type">
+                <strong>Cuenta de ahorros</strong>
+            </label>
+            <input type="text" name="account_type" placeholder="Por ejemplo, Nequi">
+            <label for="clicks">
+                <strong>Clicks</strong>
+            </label>
+            <input type="text" name="clicks" placeholder="¿Cúantos clicks quieres retirar?">
+        </div>
+        <div class="comoSera">
+            <h3>¿Deseas retirar?</h3>
+            <div class="domain">
+                <style>
+                    .domain span {
+                        width: 30%;
+                    }
+                </style>
+                <span>1000</span>
+                =
+                <span>15 USD</span>
+            </div>
+        </div>
+        <br>
+        <button type="submit">
+            <strong>Retirar</strong>
+        </button>
+    </form>
+</div>
+
+<style>
+    @media (max-width: 462px) {
+        #formRetirar {
+            margin-bottom: 30px;
+            padding-bottom: 100px;
+        }
+        #formRetirar form {
+            width: 100%;
+        }
+    }
+</style>

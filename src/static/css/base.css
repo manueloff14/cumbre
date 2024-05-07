@@ -1,0 +1,46 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+    text-decoration: none;
+    color: white;
+    font-family: 'Jost';
+}
+
+body {
+    background-color: #1F1F1F;
+    display: flex;
+}
+
+#chart {
+    width: 100%;
+}
+
+.pagina {
+    margin-left: 245px;
+    width: 100%;
+}
+
+.contenido {
+    margin: 0px 40px;
+}
+
+/* Estilo para la barra de desplazamiento */
+/* Ancho de la barra de desplazamiento */
+::-webkit-scrollbar {
+    width: 5px;
+    /* Ancho de 5px */
+}
+
+/* Estilo para la barra */
+::-webkit-scrollbar-thumb {
+    background-color: white;
+    border-radius: 10px;
+    /* Color blanco */
+}
+
+/* Estilo para el fondo de la barra */
+::-webkit-scrollbar-track {
+    background-color: transparent;
+    /* Color negro */
+}

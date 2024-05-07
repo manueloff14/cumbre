@@ -1,0 +1,68 @@
+<!-- enlaces.html -->
+{% extends 'base.html' %}
+
+{% block title %}Estadísticas | {{ super() }}{% endblock %}
+
+{% block content %}
+
+<style>
+    .pagina {
+        width: 80%;
+    }
+    @media (max-width: 1316px) {
+        .pagina {
+            width: 100%;
+        }
+    }
+    .componentes {
+        display: flex;
+        justify-content: space-between;
+    }
+    .componentes_izquierda, .componentes_derecha {
+        width: 49%;
+    }
+</style>
+
+<div class="componentes">
+    <div class="componentes_izquierda">
+        {% include './components/topEnlaces.html' %}
+    </div>
+    <div class="componentes_derecha">
+        {% include './components/topPaises.html' %}
+    </div>
+</div>
+
+<script>
+    var browserData = {{ browser_clicks|tojson }};
+</script>
+
+{% include './components/graficoVisitasDia.html' %}
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+{% endblock %}

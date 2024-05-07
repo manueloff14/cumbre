@@ -1,0 +1,46 @@
+.tarjeta {
+    background: linear-gradient(to right, #4E31AA, #3A1078);
+    padding: 30px;
+    border-radius: 20px;
+    width: 320px;
+}
+.tarjeta_superior {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.tarjeta_number {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.tarjeta_number button {
+    background-color: transparent;
+    display: flex;
+    border: none;
+}
+.tarjeta_number button img {
+    width: 15px;
+}
+h1 {
+    margin: 10px 0px;
+}
+.info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+.info img {
+    width: 30px;
+}
+.info_izquierda {
+    display: flex;
+    flex-direction: column;
+}
+.tarjeta_inferior {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}

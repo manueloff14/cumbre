@@ -1,0 +1,31 @@
+<div class="formulario" id="formAcortar">
+    <form action="{{ url_for('acortar_enlace') }}" method="post">
+        <div class="inputs">
+            <label for="long_link">
+                <strong>LongLink</strong>
+            </label>
+            <input type="text" name="long_link" placeholder="Pega aquí tu LongLink">
+            <label for="title">
+                <strong>Título</strong>
+            </label>
+            <input type="text" name="title" placeholder="">
+        </div>
+        <div class="comoSera">
+            <h3>¿Cómo se verá el enlace?</h3>
+            <div class="domain">
+                <span>cumbre.icu</span> /
+                <input title="Proximamente estará disponible" type="text" name="custom_link" id="custom_link"
+                    placeholder="Enlace customizado" disabled>
+            </div>
+            <span style="color: rgb(98, 98, 98); font-size: 10px;">Proximamente estará disponible el enlace customizado
+                para los usuarios Premium</span>
+        </div>
+        <br>
+        <button type="submit">
+            <strong>Acortar</strong>
+        </button>
+    </form>
+
+</div>
+
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/formAcortar.css') }}">

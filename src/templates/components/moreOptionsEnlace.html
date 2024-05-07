@@ -1,0 +1,123 @@
+<div class="negro" id="moreOptionsEnlace-{{ link.short_link }}" style="display: none;">
+    <ul class="moreOptionsEnlace">
+        <div class="options_superior">
+            <h2>Opciones</h2>
+            <button onclick="mostrarOpcionesEnlace('{{ link.short_link }}')">
+                <img
+                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAABHUlEQVR4nO2Y0QrCMAxF6w86FcUH/XYFxanoHygcGUwQnXOzSZtBztteknvWdg0LwXEcx3FaABbAFTgAk6AMMAWOwAWYxxYb1YWe3IClWNo3qtp1jyeXEAtwfimoJsFn+IqTROFZQ2FRCZrDV88zqQbzhgZ3YC10xm4NtVci4TUlSBVeQyJ5eEmJbOElJLKHj5EwE/4fCXPh+0iYDd9Fwnz4Drep6i2eYiVsv/keEvbDV3zZ8x8He2jh7Usw5ENMy6dScxQXoct33qwEPS4pcxL8ccOakSBiPMgugcBsk00CwcEsuQQKUyWpJDRHYrQlgCLjj61CovheM/wPiV2IBSi1w7dIlEFoC+2AjciSduu3rXuOtfs5juM4YdA8AGm08yESoTXjAAAAAElFTkSuQmCC">
+            </button>
+        </div>
+        <li>
+            <button onclick="copiarEnlaceAlPortapapeles('{{ link.short_link }}')">
+                <img
+                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAABUklEQVR4nO2ZTUrEQBCFC1zoAdQBUUcPkzmDXsEL6BX0AP4geIC5xTCil1BwFBfiytm4MPBJQY8UjQvpdDcTrG+XDry8l7xOoCLiOM7/BdgDroAXoKUbbdC5VN0a5kfAnDLMgaak+f2C5hd8AMNSAbQ2NbgoFUC7WoNZLsPrwNgcd92wf6XNYX4APKqaWauGZAhwE4v1LcB73wP84AESEH8CBq9QAuIVMniFEhCvkMErlIB4hQxeoQTEK2TwCiUgXqHfK9SrqURrBFfC2nOlAE85Arwawa2wpgPYGpznCDA1ggdmKl1jNrqbI8CJEZ2a9SZcpJT5prP5YHQH+DTiR+bcUAewOsPM9H9gprXJcuejEGfmQl82RC8A1oD76I7dAofA9uLttNQAm8Ad5RjXCLEKnEZ7IgcPOsIvHiDa2MfAJHwnUjfwG3ANbFQz7ziOLBXfE/s98Op6tFYAAAAASUVORK5CYII=">
+                <span>Copiar</span>
+            </button>
+        </li>
+        <li>
+            <button onclick="mostrarFormEditarEnlace('{{ link.short_link }}')">
+                <img
+                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA3klEQVR4nO3WQQrCMBBA0TmFHsSFJ1OXzbKI93DhiQT3ohcQRPmSRUGkCU2FZAbmbdPAn4GWijjn1ADWwAm4A0/gAhyApWgHbIE3425xONEKCInw3yEWYjR+sBfjA5xFI6YP8RCtmDbEVUtoyJzlHOsXpwNLh3gBq/rV+bBQ8OymfnU+aNAn7uy+nunqV5e9nCFzd/RM4ze+F00K43UNMTNexxB/xpt4YXM6j5/DN9+Kb74V33wr+He+EXzzjeCbbwirf5UD0/GR6fjIdHxkOj4yHR+Zjo9MxzvnnNTyAbBED/Icg9jgAAAAAElFTkSuQmCC">
+                <span>Editar</span>
+            </button>
+        </li>
+        <li>
+            <form action="/eliminar_enlace" method="post">
+                <input type="hidden" id="enlaceCorto" name="enlaceCorto" value="{{ link.short_link }}">
+                <button type="button" onclick="confirmarEliminacion('{{ link.title }}')">
+                    <img
+                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAABUklEQVR4nO3YrUtDYRiG8dePanEGk+ZZtA+PgmnZGfQvcP+BMFAYBotJwWRXMdtcFRQsWqwmRXBi9OuSwRmc4FHDez/HI88Fp477N9jhYSF4nud5XuSAGWDpi6cODIW/HDANvJNfu6hhw0At55vNPtt839kvPqMOjMYcPwJcYNsjMBsL0KKYLmMB9gsCPMcCLBcEOI4FGADWgAej4S/AEVCJAshAmkaATtThGUDDCHCgAiRGgB0VoGoEWFcBxowATRVgEHg1ACxKACni3gCQKAHXBoCqEtAxAFSUgEPx+Lfeb00J2BUD7mTjU8CGGHClBqjvoVM1oFHKO6gfMFfKO6gfMFXKO8jwHloNytJ7qPeuLt8dZHQPJUEdcC4ETFoAtkTjb+TjU8A40BUAVkwAKWIeeIo0/APYNBufQUwAe8DtD/9I59UFToAF8/Ge53nev+gT4Xg+5D1jwYgAAAAASUVORK5CYII=">
+                    <span>Eliminar</span>
+                </button>
+            </form>
+            <script>
+                function confirmarEliminacion(title) {
+                    var mensaje = "¿Está seguro de que desea eliminar el enlace: '" + title + "'?";
+                    if (confirm(mensaje)) {
+                        // El usuario presionó "Aceptar", enviar el formulario
+                        document.forms[0].submit();
+                    }
+                    // Si el usuario presionó "Cancelar", no hacer nada
+                }
+            </script>
+        </li>
+    </ul>
+</div>
+<style>
+    .negro {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.575);
+        z-index: 1001;
+    }
+
+    .options_superior {
+        display: flex;
+        margin-bottom: 10px;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        border-bottom: 1px solid rgb(114, 114, 114);
+    }
+
+    .options_superior button {
+        background-color: rgb(243, 0, 0);
+        border: 2px solid white;
+        border-radius: 100px;
+        padding: 10px;
+        display: flex;
+    }
+
+    .options_superior button:hover {
+        border: 2px solid rgb(243, 0, 0);
+    }
+
+    .options_superior button img {
+        width: 20px;
+    }
+
+    .moreOptionsEnlace {
+        width: 60%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 100;
+        background-color: rgb(46, 46, 46);
+        box-shadow: 0px 0px 10px rgb(114, 114, 114);
+        border-radius: 10px;
+    }
+
+    .moreOptionsEnlace li {
+        text-align: right;
+        display: flex;
+        justify-content: right;
+        margin-bottom: 10px;
+        margin-right: 10px;
+    }
+
+    .moreOptionsEnlace li button {
+        background-color: rgb(56, 56, 56);
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        border-radius: 10px;
+        border: 2px solid transparent;
+        transition: 0s;
+    }
+
+    .moreOptionsEnlace li button:hover {
+        border: 2px solid white;
+    }
+
+    .moreOptionsEnlace li button span {
+        margin-left: 10px;
+    }
+
+    .moreOptionsEnlace li button img {
+        width: 20px;
+    }
+</style>

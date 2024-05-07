@@ -1,0 +1,54 @@
+<!-- panel.html -->
+{% extends 'base.html' %}
+
+{% block title %}Panel | {{ super() }}{% endblock %}
+
+{% block content %}
+
+<div class="panel">
+    <div class="acortar_derecha">
+        <div class="clicks">
+            <h2>Puedes retirar:</h2>
+            <div class="clicks_derecha">
+                <span>{{ saldo }}</span>
+            </div>
+        </div>
+        {% include './components/retiros.html' %}
+    </div>
+    <div class="acortar_izquierda">
+        {% include './components/tarjeta.html' %}
+        <br>
+        <hr>
+        <br>
+        <style>
+            #btnRetirar {
+                width: 100%;
+                border: none;
+                padding: 20px;
+                position: relative;
+                background-color: transparent;
+            }
+            #btnRetirar a {
+                position: absolute;
+                background-color: rgb(48, 199, 48);
+                height: 100%;
+                border-radius: 10px;
+                width: 100%;
+                top: 0px;
+                left: 0px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        </style>
+        <button id="btnRetirar">
+            <a href="/retirar">
+                <strong>Retirar dinero</strong>
+            </a>
+        </button>
+    </div>
+</div>
+
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/panel.css') }}">
+
+{% endblock %}

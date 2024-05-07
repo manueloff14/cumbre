@@ -1,0 +1,24 @@
+<!-- search.html -->
+<script>
+    // Espera a que el DOM esté completamente cargado
+    document.addEventListener("DOMContentLoaded", function() {
+        // Obtén el valor de la variable 'query' exportada desde Python
+        const queryValue = "{{ query }}";
+
+        // Asigna el valor al campo de entrada del formulario con el id 'query'
+        const queryInput = document.getElementById('query');
+        if (queryInput) {
+            queryInput.value = queryValue;
+        }
+    });
+
+</script>
+{% extends 'base.html' %}
+
+{% block title %}{{ query }} | {{ super() }}{% endblock %}
+
+{% block content %}
+
+{% include './components/resultadosBuscar.html' %}
+
+{% endblock %}

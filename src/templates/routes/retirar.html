@@ -1,0 +1,16 @@
+<!-- retirar.html -->
+{% extends 'base.html' %}
+
+{% block title %}Retirar | {{ super() }}{% endblock %}
+
+{% block content %}
+
+<style>
+    .formulario form {
+        width: 40%;
+    }
+</style>
+
+{% include './components/formRetirar.html' %}
+
+{% endblock %}

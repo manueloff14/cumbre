@@ -1,0 +1,43 @@
+<div class="menu_cuenta" id="menu_cuenta">
+    <div class="superior_menu">
+        <span>
+            manueloff14
+        </span>
+        <strong>manueloffcabrera@gmail.com</strong>
+        <div class="free">
+            <strong>Cuenta gratis</strong>
+        </div>
+    </div>
+    <ul class="centro_menu">
+        <li>
+            <a href="">Soporte</a>
+        </li>
+        <li>
+            <a href="">Términos</a>
+        </li>
+        <li>
+            <a href="">Foro</a>
+        </li>
+    </ul>
+    <div class="abajo_menu">
+        <a href="/logout">
+            <strong>Cerrar sesión</strong>
+        </a>
+    </div>
+</div>
+
+<script>
+    function toggleMenu() {
+        var menu = document.getElementById('menu_cuenta');
+        // Verificar el estado actual del menú
+        if (menu.style.display === 'block') {
+            // Si el menú está visible, ocultarlo
+            menu.style.display = 'none';
+        } else {
+            // Si el menú está oculto, mostrarlo
+            menu.style.display = 'block';
+        }
+    }
+</script>
+
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/menu.css') }}">

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Código de verificación | Cumbre</title>
+    {% include './components/head.html' %}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/confirm_code.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Confirmar Código de Verificación</h1>
+        <p>Introduce el código de verificación que hemos enviado a tu correo electrónico para confirmar la eliminación de tu cuenta.</p>
+
+        <form action="{{ url_for('confirm_delete_account') }}" method="POST">
+            <input type="text" name="verification_code" placeholder="Código de verificación" required>
+            <button type="submit">Confirmar Eliminación</button>
+        </form>
+
+        <div class="errores">
+            {% if get_flashed_messages() %}
+                <ul class="flashes">
+                    {% for message in get_flashed_messages() %}
+                        <li>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>

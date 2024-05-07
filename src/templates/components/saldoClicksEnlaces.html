@@ -1,0 +1,37 @@
+<div class="saldo">
+    <div class="saldo_superior">
+        <div class="img">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAACbUlEQVR4nO2YXYhNURTHfyafoSgj44G8+HhQMpk3iRdNkhRFXhTFg5JRSt2aO0M0Kd5mXvA0RYknmiQv4oERD5QXEkOSj8SdYj4c7VrqtFvbPeded++zp/urVffU2Xuv/917r7XOgiZTl9nAdaACXANmERkHgSRlB4iMsiXAPEdFuSkgAOuAXmAI+GztgHm+BXQDKykYm4FHlsPV7DawOrTjLcBp4HdO5//aT2BvSAF9/3DuI3AfuAM8BEYd702GEtHpcMgkr/XK+3OA/cAHZUwFWO5bwFPFkZ4M45YBL5Wxl/DIGsWBx8C0jOPb5egkKTNHbB6eOKQIOJJzjhvKHNsIlGWNbck5x25lji48cVZZfFPOOeYCX0LtQJci4HCNkew18BU4l+MO/ZfMawsYlsQWBTOAT4qI8z7/xXo55khkQ0Us1ly7cNchYlw+I3cAMykwC4F7VQo2E2kGJEq1FHUn+oCxDNXnO+BCEcpoDXPur2QUMgEMAqsoIEuBkqPYs+1XDSWIV1YAJ4EXVYRcLur9SNMhjk44RJSJhLXAM0XAmOxYFCwAnisizhARGxUBD3wsPF/K6ZsSQeqpfd5bAkbwwNU6v8TSDCthteF8txY1Z7lW3lpzmY5Fw9Fi+oYao1FimekjNZxuZeEn0vfJynRHJVvCUwX6TVncdODaMoxfIgHAHl+RMsQL+xzZdFSy7R6pOBcDrfJ7F3BRuUOJ2HE8U6qjqWtbP4HY6eh1ZrUf0iQLirm8RyWmZ92RV8ApYBEFw1zC7cAJxeleaaObvmoUJCkzOxMdSewCRlIC3hAhnSLC1DtbQzvThAbxB5IlfQzgeW2HAAAAAElFTkSuQmCC">
+        </div>
+        <span>Saldo</span>
+    </div>
+    <h1>
+        <strong>${{ saldo * 0.015 | format_number }}</strong>
+    </h1>
+</div>
+
+<div class="clicks">
+    <div class="saldo_superior">
+        <div class="img">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC8AAAAvCAYAAABzJ5OsAAAACXBIWXMAAAsTAAALEwEAmpwYAAACgUlEQVR4nO2ZPWgUQRTHfxc9ET8umkZRULCJIoJoxMaYSAS7FHKC2lnYaIqY4hrxC0MasbGxsBERsVARxcZCsVDjF1iI4BcogieKooiFRF0ZfAfDsLe7l+zMvhP/8Ip5M7v7e7PzZmdn4L+YBSwEprdLX3QCR4DnQCQ2AdwAtgEllGo98E6AfwPPgPvAByuQaxKgKq0EvgrgaWCpVWd6ezPwROpvAmWUqCQ9bMAOJbSbCzyQdiMo0YAAjTtjei2wHVhg+bolB+pABwp0XOB3Wb4D1jg3w2mVVXdd/D0o0AUHxvT+Jwve2Amr/THxmdmncJ0TmD4plx1wYxet9ifFN4gCHXWSMA3+nvjMDFW4VgvMawFPgu+V8lMU6apALUqB3yflnSjSYuBNRvgzKNQS+RAlwS8HpqFY5ZSEVa3yvw5fAWbSZvAl4BTwC/gBDMdc211kYEnwWxz/hMxURuustf9nYIM2+OGYuk3Ogi0SM+WGOiS4Pt9vJctHyrZ+qXvh+O2v8CXL/9hnAK3C96bAr4i5ZmtI+MYQOBhTNyCJXG8C3x9zzd6Q8CYxz8as8429BC7H+JPghyYDZpJmDBgF1rQAPxl7K4lazQN+N/DT6c0Rj/CRJOf7qcLPB743eUDNI3zUxFqC35hys5pm+GUZbljTCm90PsNN92uFrwB3MgagDt5oNnArAFzkA77xBu62KzyyTT3ervBFBzBEDppnbW+HtD3kpE5rCy+UVclRZvnwMCB8Dzkr1BCq+zqY6AIeeYY/7APcDsBXDrzi7/muV82RU8E8wT/Knk4wVWXffqrgt53j0WCaAewArgBfWgD+Jv+2g5pOzivyf5BkXUVDFqI/2UYAxSApZ0QAAAAASUVORK5CYII=">
+        </div>
+        <span>Clicks</span>
+    </div>
+    <h1>
+        <strong>{{ total_clicks }}</strong>
+    </h1>
+</div>
+
+<div class="enlaces_generados">
+    <div class="saldo_superior">
+        <div class="img">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAABsElEQVR4nO2XPy9DURjGf0JikMbC1xC6oIaaUBIUg0/RpR9CQhORmBgMIl34EqxiIyiRKAmLSBd/UionOUPz9rT33l63vcP7S872nLfPe3PO+5yCoiiKoiiKosSVfmAVKAJXQAWoNVllIOOj5gLw1KTGL/AKXAAFIBXGfBa4b2HYtR591C0HrHkGJIMY7wE2A/5IlA3UgC8g57eB7RDm53zUz7TZRA3IexVfseewftMnsAOMAwNEz5Bt8tjh5QdIN9vYBzw4LuYI3WMGeBeeboFel3hdCD+AUbpPGqgKb0su4aEQmWMTF/aFtyOXSI7MiRDzPMgq+8iPKbHn2iWSZy3hUbTdSdLO+E0IvQnUBioxbmBQ6N9cohshmoxwngfNj5TYY7w2UBSiPeLDrvB24BItC1G1VWh0kKQN03pvay6hCYeSEJqLPUv3GAOehae7ZkFmmLZxXb/BxPkJMA8Md8B0wt4/c2y+HV4WvQrkI5znYfOj4Pcr5OwT9r/HISEm14Z96ge6PKcxaKDk59h4zeAt4Bx4cTxxg8xzP/lRAS7teydr/9YqiqIoiqIoCvHjD3OEikOP4mjCAAAAAElFTkSuQmCC">
+        </div>
+        <span>Enlaces</span>
+    </div>
+    <h1>
+        <strong>{{ total_enlaces }}</strong>
+    </h1>
+</div>
+
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/saldoClicksEnlaces.css') }}">

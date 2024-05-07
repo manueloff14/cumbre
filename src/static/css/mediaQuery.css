@@ -1,0 +1,109 @@
+@media (max-width: 1316px) {
+    aside .logo {
+        display: flex;
+        justify-content: center;
+    }
+    aside .logo img {
+        margin: 0px 10px;
+    }
+    aside ul span, .logo h1 {
+        display: none;
+    }
+    .pagina {
+        margin-left: 90px;
+        
+    }
+    .formulario form {
+        width: 80%;
+    }
+}
+
+@media (max-width: 1178px) {
+    .panel .tarjeta {
+        font-size: 12px;
+        padding: 20px;
+    }
+    .acortar_izquierda {
+        margin-left: 10px;
+    }
+    .transferencias_superior .clicks,
+    .saldo,
+    .enlaces_generados {
+        width: 25%;
+    }
+}
+
+@media (max-width: 865px) {
+    .acortar_izquierda {
+        margin-left: 20px;
+    }
+}
+
+@media (max-width: 828px) {
+    .pagina {
+        margin: 0px;
+    }
+}
+
+@media (max-width: 770px) {
+    .panel {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 100px;
+    }
+    .panel .acortar_derecha {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    .panel .tarjeta {
+        width: calc(100% - 40px);
+    }
+    .acortar_izquierda {
+        margin: 0px;
+    }
+}
+
+@media (max-width: 707px) {
+    .componentes {
+        display: flex;
+        flex-direction: column;
+    }
+    .componentes .componentes_derecha, .componentes .componentes_izquierda {
+        width: 100%;
+    }
+}
+
+@media (max-width: 625px) {
+    .transferencias_superior {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .transferencias_superior > div {
+        flex: 1 1 30%; /* Ajusta para que cada elemento intente ocupar al menos el 30% del ancho del contenedor */
+        margin: 10px; /* Espaciado entre elementos */
+    }
+}
+
+@media (max-width: 500px) {
+    .transferencias_superior > div {
+        flex: 1 1 100%; /* En pantallas muy pequeñas, una columna */
+    }
+}
+
+@media (max-width: 537px) {
+    #formAcortar form {
+        width: 90%;
+    }
+}
+
+@media (max-width: 491px) {
+    #formAcortar form {
+        width: 100%;
+    }
+    #formAcortar .domain span, #formAcortar .domain input {
+        width: 30%;
+    }
+}

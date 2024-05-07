@@ -1,0 +1,52 @@
+<aside>
+    <div class="logo">
+        <img src="{{ url_for('static', filename='img/cumbre_logo.svg') }}" alt="">
+        <h1>
+            <strong>Cumbre</strong>
+        </h1>
+    </div>
+    <ul>
+        <button id="btnAcortar" data-ruta="/acortar" class="btnAside"
+            onclick="irA('/acortar')">
+            <img
+                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAAB8UlEQVR4nO2ZTU7CQBiGCf4sXPqzAo8h0YMYjB4EwwHAvRI0HsGICxEXnkKjB1BZCbgGN4/5ZEwaIuGbztAOsU/SpElh5n2b9vtrLpeRkeEMsATsAVXgGngBPoEvc8j5s7kmv9kF8iEI3wZOgC72vAN1oJiG8C3gAhjhzghoAptJiT8EBvinDxzMU/gKcMn8OZe9fItfAzokx53s6fPOJyn+lwdg1YeBJB6baTRdxR+RPuW44jeAXtrqGUc8+xBr4rwLbaAgicrDO9SIk2Fdk1RxYj0XhlYZ25QHTvyxpit1rfi8qVNCM9CVolFjQKpKAjQglDQGpNwN1cCxxkArYANXGgPSeIRq4EljYGAT52cuOHu/okWe6GkW1MZ/b50U+jwx/BcGBsrFOj5MMBZ/7/MRWviXuLXoYbQasIGKxoAMnUI1sKMt5t4CNPCqnuaZiVloBmoq8ZHsGFpDU1AbMJvKuM+FnzxhGeencWol3hhYD6Sp78eem8qsMm31wH4s8RETMqtMizMn8ZGPFzcpiG8Dy84GIsNdGbgmxa234e7EkNc1Mmk483bnpxgpzyk6fTi/sJZz04ZJMK4MJc5L2E5E/ISRgik74tRO8p+aj77ahxEpAEsyt5GaXRoP09mNzCHnj+ZaRarKID6zZmTkFp9vxjppGihGUiQAAAAASUVORK5CYII=">
+            <span><strong>Acortar</strong></span>
+        </button>
+        <button id="btnPanel" data-ruta="/panel" class="btnAside"
+            onclick="irA('/panel')">
+            <img
+                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAABU0lEQVR4nO3Yv0oDQRDH8YloEATBwsJGGwttRJ8gvZ1iY6WVr+Ar+AoBCztLO8U/nS8gaWzE6rBTEIQkSvzKwYLCcfGy2budI/OBbQKZnd/t3JGciDGmFEALeHarJXUCHAGf/PoCjoGGaAbMAmfkOwfmRCNgFejwv0dgXTQBtoE3insHdjQ03nCzPWB038AJMBWr+XnggvFdAgtVN7/mZjmUJ2Cjqub3gQ/C6wKHZTY+7Wa2bG1gJnTzi8Ad1bkHlkI1vwUkVC9J9x63+c0Rn++hvXrf3G7mH4iv43VPpE8E9DjwCXCNHlc+AV7QI/EJ4PP7piwDnwCqiAWITOwEIhM7gQk6gS5w6v47/F3pZ706BNgdUnOvDgGaQ2o21QeQSHUzLEAOO4GibIRy2AhN0gj1PfbpxaqbAdx6bHQTq24GsJJ+seAV67vXMMux6hpjpJ5+ANIc0C46l76aAAAAAElFTkSuQmCC">
+            <span><strong>Panel</strong></span>
+        </button>
+        <button id="btnEstadisticas" data-ruta="/estadisticas" class="btnAside"
+            onclick="irA('/estadisticas')">
+            <img
+                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA2UlEQVR4nO2WQQoCMQxFcz8VDyWClxr1SjrunxRnJXRayjST0f+gy4S+pnxiJoQQQgQCOAJ34DWdG3CwLQBcyHO2Dbx8ib1Fhc+3KXG1qABjhcDTokIlFhUksHKeE2kCLXlOFIHWPCeQQFOeE0igKc8JJNB0ESTwqxPAKc/pIeCZ5ywt4J3ndBBwzXM6CLjmOR0EXC+CBL7QBAos9WBZWht61/20wFjR77F2XZZp5ykxrF2XJS1sFQ13a9fNkha2mWanKHWzpIUt7TzTH01nqHkJ7zohhBD/yRs82IhNJrHOeAAAAABJRU5ErkJggg==">
+            <span><strong>Estadísticas</strong></span>
+        </button>
+        <button id="btnTransferencias" data-ruta="/transferencias" class="btnAside"
+            onclick="irA('/transferencias')">
+            <img
+                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAACtElEQVR4nO3YTYhVZRzH8WNlBTNOjMEoLiYIHKZFZtpGHFQwXJqUC1+wcjMQFRgoLl1Vmi+ISuSYblylQgRCihuRoEEHotlEhaUEYUiK0yLK0Y88+gxc45x77zlzX05yv3Dgcs/9P8/ve89znvOcJ0k6dOjQoVTgGbyHz3C4JMeneB/dtcL34Sfl5eeQsZrAPuVnbzWBbzKKxtswbMYzsoxWExjLKHonaTF4NyPLWF6BH9HV0vTJ/SzdccwXFvgBu9FbMMCTGMD88LlgG7OxJ2bJLTBcsNM5GMFERVsTcVruK9jmcEsEsADXZPM7XiylAHpxRW1+w7NlFNivEXN5swTwMt7AEyl1T+GvHAITaTc2ZmItFjZUIIafjN8fTKlbJj9DKe0ciucmKyUaIRD++SnOpNRtLCCwIaWdsxXnX2+kQLi0B2MHC1Lq1hcQWJcxi4U+DlQO1abfxFhaQGBJjvabLhCu0J85wt8MNUlZBGLtrhwCu3K2PdwKgR5criN8+E1PKwRGMJizo4E61vkDOdscjFlyCwTu4qOkTWBnzDCt94HAqy1NntzPsiojSyGBo1jc4uNYRpZL1QS+VH5OVhNYWbHmKSN3sKLW2FuD73FbebgbM62u8xbq0GFa4AN8i/M4h1P4Ij5JD8UHzNa4jB7Cc3kWZzmzjFUcL9RT8Pw0Zoiw6zCKI3E3eXnRfaUp/tPH4qQWmIXrGsvV+IzZEl4V8VjTBALox+Y4lLbjwzhswhD6HCdwAb/gnwJCN/BV3P/sT1LAInxcSCAPmIG5eAWvYRuOx3n73zqFvsOOqZUqNsUhqekCdbypvYQ345I4bBTX4mJ8Y9N2gQypeWFHIi4Q/5CPh/aL2g4ej9PwJ/i1Rvi/8XRSVjy4l5bFKfhWisCO5P8CuvA2TuNrvNXuTB0eWe4BI0A5bCUqfbcAAAAASUVORK5CYII=">
+            <span><strong>Transferencias</strong></span>
+        </button>
+        <button id="btnEnlaces" data-ruta="/enlaces" class="btnAside"
+            onclick="irA('/enlaces')">
+            <img
+                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAABuUlEQVR4nO2Xu0oDURCGVyKkkGCjryGaRo2FVmoUvBc+RZo8hKABCVhpYSFioy+hrdgpxihCoqCNSBovRD85ssUynLCXZJMt5qv/mf3ncM7MrOMoiqIoiqIoSiIB0sA6cALcAA1aUwfyAXIuAk8tcvwCr8AVUAJy7ZhfBR4IRy1AXlNoGC6AbBjjfcB2yI/EWYDhCygELWCXaNSA+QD58xGLMBT9kq+599DLJ1AGxoEBJ2aAIbfIU4uXH2C6VWA/8CgCzEmNOD0CmAXehac7IGUTbwrhBzDaE+cezIkDTeFt2SY8EqKykxCAA+Ht2CaSLXOijX4ehrrf/ACmRMytTSTvWsYnadROErr9Ahmhb9hEjQQXMCj0bzZRRYgmY+znoeYHkBMxFZvI7Dte9p2EAOwJb4c20YoQNVsOjS4CZN1h6mXDJkwBVSE0D3uuJ86df09jwLPwdG8dZG7AjDuuvZhxfgYsAMNdMJ0x78+9Nt8WL0t+CYpEoxP/A36Ugp5CwV1hk7JOG7bMqh+oAM/jOaf3BVR9r02AHrwDXAIvlhW30/8DDeDa7DvuX2E6snlFURRFURRFceLkD6tC6Sq/CBtVAAAAAElFTkSuQmCC">
+            <span><strong>Enlaces</strong></span>
+        </button>
+        <button id="btnAjustes" data-ruta="/ajustes" class="btnAside"
+            onclick="irA('/ajustes')">
+            <img
+                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAACWElEQVR4nO2Zy2oUQRSGy4wmCxOFLIImbrIxYoQo5AW8bL0sjU+gRBLUuNa4iGjiC6jPorg1OzMxgmSngjtxDGTE8MnRCjSDk6pzquNUQ//QMBQ9/2Wm+vTp087VqFGjNADXgC90x2fgqssRQB/wlTDknD6XG4BTxGPC5QbghiLAjMsNwLIiwFOXC4ATwDOgpQjQ8t8Z+x8GR4HHwANgqrB+CHgEtLGjDSwKV4H3rF8TzdFU8/3Aeofoey+wSnlY9T/GRse6aPenBLhP77FgNT8CfOu1e+A7cNwS4CX54IXW/Dlgh3ywA0xrArxOEHsHzAOTwGF/TPq1tQTeV7HmjxoFtoFbe/U5QAOYTSi9QzEBDvyjdMaYP6/4hy8YQqyJt1iBceCDgvxmrPmCxm0Fv3gZ1woMA28i97y6PfbbqRnBLx6Gtfy7IgPAx4DAvIn8L/+dALdoD1j5d0U2AyKnE7jPBLg3k8x7ka2AyGAC91CAe6uMAD+SS1t37iMB7lYZAaq7hajyRUx8GZUbTMNYRtf3pYwabmSzhgBz+3IjM7YS0hZcVJi/BPxUajSjWomEZq7t24NGYNvMGczrKp60rtjR9BenVJhBf8jnu4Z/Vt9OFyYDv6jqA41AHuPIB89dxR/qj6kD+BALvXYP3DOZ32OwteGHUGUOtt76YZkMzToLgn2wVRgtLgEP5eLuGC0uJo4Wt/3I8mCBd8qvLZnmQYaAY8bh7kry7LNMyMhcEeCJyw3AjCLAdZcbgAlFgJMuN1D1l3wC4Ip/ldoNn4DLf06uUaOGKwO/AfKVvmEdXLXsAAAAAElFTkSuQmCC">
+            <span><strong>Ajustes</strong></span>
+        </button>
+    </ul>
+</aside>
+
+<script src="{{ url_for('static', filename='js/cambiarFondoBoton.js') }}"></script>
+
+<script src="{{ url_for('static', filename='js/irA.js') }}"></script>
+
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/aside.css') }}">

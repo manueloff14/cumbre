@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    {% include './components/head.html' %}
+    <title>Cumbre | {{ title }}</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/acceder.css') }}">
+    <style>
+        input {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    {% include './components/accederHeader.html' %}
+    <div class="contenido">
+        <div class="pagina">
+            <div class="bienvenida">
+                <h1>Espera, <a href="">por favor</a></h1>
+                <p>Recibe 15 USD por cada 1,000 clicks en tus enlaces</p>
+                <br>
+                <img src="{{ url_for('static', filename='img/ganando_dinero.svg') }}" alt="">
+            </div>
+            <div class="formulario">
+                <form action="/enviar_user_data" method="post">
+                    <div class="cargando">
+                        <h3><strong id="textCargando">Cargando...</strong></h3>
+                        <div class="cuenta_regresiva">
+                            <h1><strong id="countdown">30</strong></h1>
+                        </div>
+                    </div>
+                    <input type="text" name="short_link" value="{{ short_link }}">
+                    <input type="text" name="long_link" value="{{ long_link }}">
+                    <div>
+                        <input id="referer" name="referer" placeholder="Referer" readonly value="{{ referrer }}">
+                        <input id="navegador" name="navegador" placeholder="Navegador" readonly>
+                        <input id="version_navegador" name="version_navegador" placeholder="Versión del Navegador"
+                            readonly>
+                        <input id="sistema_operativo" name="sistema_operativo" placeholder="Sistema Operativo" readonly>
+                        <input id="version_sistema_operativo" name="version_sistema_operativo"
+                            placeholder="Versión del SO" readonly>
+                        <input id="es_pc" name="es_pc" placeholder="Es PC" readonly>
+                        <input id="es_movil" name="es_movil" placeholder="Es Móvil" readonly>
+                        <input id="es_tablet" name="es_tablet" placeholder="Es Tablet" readonly>
+                        <input id="es_touch_capable" name="es_touch_capable" placeholder="Es Touch Capable" readonly>
+                        <input id="es_bot" name="es_bot" placeholder="Es Bot" readonly>
+                    </div>
+                    <div class="data_ip">
+                        <input type="text" name="ip" id="ip" placeholder="Dirección IP del usuario" readonly>
+                        <input type="text" name="is_eu" id="is_eu" placeholder="Indica si está en la Unión Europea"
+                            readonly>
+                        <input type="text" name="city" id="city" placeholder="Ciudad de conexión" readonly>
+                        <input type="text" name="region" id="region" placeholder="Región de conexión" readonly>
+                        <input type="text" name="region_code" id="region_code" placeholder="Código de la región"
+                            readonly>
+                        <input type="text" name="region_type" id="region_type" placeholder="Tipo de región" readonly>
+                        <input type="text" name="country_name" id="country_name" placeholder="Nombre del país" readonly>
+                        <input type="text" name="country_code" id="country_code" placeholder="Código del país" readonly>
+                        <input type="text" name="continent_name" id="continent_name" placeholder="Nombre del continente"
+                            readonly>
+                        <input type="text" name="continent_code" id="continent_code" placeholder="Código del continente"
+                            readonly>
+                        <input type="text" name="latitude" id="latitude" placeholder="Latitud geográfica" readonly>
+                        <input type="text" name="longitude" id="longitude" placeholder="Longitud geográfica" readonly>
+                        <input type="text" name="postal" id="postal" placeholder="Código postal" readonly>
+                        <input type="text" name="calling_code" id="calling_code"
+                            placeholder="Código de llamada del país" readonly>
+                        <input type="text" name="flag" id="flag" placeholder="URL de la bandera del país" readonly>
+                        <input type="text" name="emoji_flag" id="emoji_flag" placeholder="Emoji de la bandera del país"
+                            readonly>
+                        <input type="text" name="emoji_unicode" id="emoji_unicode"
+                            placeholder="Código Unicode del emoji de la bandera" readonly>
+                        <input type="text" name="asn" id="asn" placeholder="Número de Sistema Autónomo" readonly>
+                        <input type="text" name="asn_name" id="asn_name" placeholder="Nombre de la entidad del ASN"
+                            readonly>
+                        <input type="text" name="asn_domain" id="asn_domain" placeholder="Dominio asociado al ASN"
+                            readonly>
+                        <input type="text" name="asn_route" id="asn_route" placeholder="Ruta de red del ASN" readonly>
+                        <input type="text" name="language_name" id="language_name"
+                            placeholder="Nombre del idioma principal" readonly>
+                        <input type="text" name="language_native" id="language_native"
+                            placeholder="Nombre nativo del idioma principal" readonly>
+                        <input type="text" name="language_code" id="language_code" placeholder="Código del idioma"
+                            readonly>
+                        <input type="text" name="currency_name" id="currency_name"
+                            placeholder="Nombre de la moneda local" readonly>
+                        <input type="text" name="currency_code" id="currency_code" placeholder="Código de la moneda"
+                            readonly>
+                        <input type="text" name="currency_symbol" id="currency_symbol"
+                            placeholder="Símbolo de la moneda" readonly>
+                        <input type="text" name="currency_native" id="currency_native"
+                            placeholder="Símbolo nativo de la moneda" readonly>
+                        <input type="text" name="currency_plural" id="currency_plural"
+                            placeholder="Nombre plural de la moneda" readonly>
+                        <input type="text" name="time_zone_name" id="time_zone_name"
+                            placeholder="Nombre de la zona horaria" readonly>
+                        <input type="text" name="time_zone_abbr" id="time_zone_abbr"
+                            placeholder="Abreviatura de la zona horaria" readonly>
+                        <input type="text" name="time_zone_offset" id="time_zone_offset"
+                            placeholder="Diferencia horaria respecto a UTC" readonly>
+                        <input type="text" name="time_zone_is_dst" id="time_zone_is_dst"
+                            placeholder="Indica si se aplica horario de verano" readonly>
+                        <input type="text" name="time_zone_current_time" id="time_zone_current_time"
+                            placeholder="Hora actual en la zona horaria" readonly>
+                        <input type="text" name="is_tor" id="is_tor" placeholder="Indica si la conexión usa la red Tor"
+                            readonly>
+                        <input type="text" name="is_icloud_relay" id="is_icloud_relay"
+                            placeholder="Indica si la conexión usa iCloud Private Relay" readonly>
+                        <input type="text" name="is_proxy" id="is_proxy"
+                            placeholder="Indica si la conexión usa un proxy" readonly>
+                        <input type="text" name="is_datacenter" id="is_datacenter"
+                            placeholder="Indica si la IP pertenece a un centro de datos" readonly>
+                        <input type="text" name="is_anonymous" id="is_anonymous"
+                            placeholder="Indica si la conexión es anónima" readonly>
+                        <input type="text" name="is_known_attacker" id="is_known_attacker"
+                            placeholder="Indica si la IP es de un atacante conocido" readonly>
+                        <input type="text" name="is_known_abuser" id="is_known_abuser"
+                            placeholder="Indica si la IP es de un abusador conocido" readonly>
+                        <input type="text" name="is_bogon" id="is_bogon"
+                            placeholder="Indica si la IP es bogon (no debe estar en Internet)" readonly>
+                    </div>
+                    <button type="submit" id="entrarButton" disabled onclick="mostrarAlerta()">
+                        <strong id="btnText">ESPERANDO</strong>
+                    </button>
+                </form>
+                <span>¡EMPIEZA EN CUMBRE!</span>
+                <a href="" class="crearCuenta">Crear cuenta</a>
+            </div>
+        </div>
+    </div>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <ul class="flashes">
+        {% for message in messages %}
+        <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    {% endwith %}
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var countdownElement = document.getElementById('countdown');
+            var button = document.getElementById('entrarButton');
+            var count = 5; // Iniciar la cuenta en 30
+            var textCargando = document.getElementById('textCargando');
+            var btnText = document.getElementById('btnText');
+
+            var interval = setInterval(function () {
+                count--;
+                countdownElement.textContent = count; // Actualizar el texto del contador
+
+                if (count <= 0) {
+                    clearInterval(interval); // Detener el intervalo cuando el contador llegue a 0
+                    button.disabled = false; // Habilitar el botón
+                    button.classList.add('enabled'); // Cambiar el color del fondo a verde
+                    textCargando.textContent = '¡Puedes continuar!';
+                    btnText.textContent = 'CONTINUAR';
+                }
+            }, 1000); // Cada segundo
+        });
+
+        function mostrarAlerta() {
+            var count = parseInt(document.getElementById('countdown').textContent);
+            if (count <= 0) {
+                alert("Puedes entrar ahora!");
+            }
+        }
+    </script>
+    <style>
+        .cargando {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            position: relative;
+            height: 135px;
+        }
+
+        .cargando .cuenta_regresiva {
+            position: absolute;
+            padding: 40px;
+            background-color: rgb(45, 45, 45);
+            border: 1px solid white;
+            border-radius: 100px;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            margin: auto;
+            right: 0px;
+        }
+
+        .cuenta_regresiva h1 {
+            margin: 0;
+            font-size: 48px;
+        }
+
+        #entrarButton {
+            background-color: red;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .enabled {
+            background-color: green;
+        }
+
+        .crearCuenta {
+            background-color: rgb(22, 22, 22);
+            width: calc(100% - 20px);
+            text-align: center;
+            padding: 10px;
+            border-radius: 10px;
+            border: 2px solid transparent;
+            transition: 0.2s;
+        }
+
+        .crearCuenta:hover {
+            border: 2px solid white;
+        }
+    </style>
+    <script>
+        // Función para cargar datos del dispositivo
+        function cargarDatosDispositivo() {
+            const data = { user_agent: navigator.userAgent };
+            fetch('https://pruebascumbre.pythonanywhere.com/obtener_informacion_dispositivo', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            })
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('navegador').value = data.navegador || 'null';
+                    document.getElementById('version_navegador').value = data.version_navegador || 'null';
+                    document.getElementById('sistema_operativo').value = data.sistema_operativo || 'null';
+                    document.getElementById('version_sistema_operativo').value = data.version_sistema_operativo || 'null';
+                    document.getElementById('es_pc').value = data.es_pc ? "Sí" : "No";
+                    document.getElementById('es_movil').value = data.es_movil ? "Sí" : "No";
+                    document.getElementById('es_tablet').value = data.es_tablet ? "Sí" : "No";
+                    document.getElementById('es_touch_capable').value = data.es_touch_capable ? "Sí" : "No";
+                    document.getElementById('es_bot').value = data.es_bot ? "Sí" : "No";
+                })
+                .catch(error => console.error('Error:', error));
+        }
+
+        // Función para cargar datos de la IP
+        function cargarDatosIP() {
+            fetch('https://api.ipdata.co/?api-key=577b04474a4c069aca3f3e2628b9000b01531a7523e1cc0b51f0fc12')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('ip').value = data.ip || 'null';
+                    document.getElementById('is_eu').value = data.is_eu ? 'Sí' : 'No';
+                    document.getElementById('city').value = data.city || 'null';
+                    document.getElementById('region').value = data.region || 'null';
+                    document.getElementById('region_code').value = data.region_code || 'null';
+                    document.getElementById('region_type').value = data.region_type || 'null';
+                    document.getElementById('country_name').value = data.country_name || 'null';
+                    document.getElementById('country_code').value = data.country_code || 'null';
+                    document.getElementById('continent_name').value = data.continent_name || 'null';
+                    document.getElementById('continent_code').value = data.continent_code || 'null';
+                    document.getElementById('latitude').value = data.latitude || 'null';
+                    document.getElementById('longitude').value = data.longitude || 'null';
+                    document.getElementById('postal').value = data.postal || 'null';
+                    document.getElementById('calling_code').value = data.calling_code || 'null';
+                    document.getElementById('flag').value = data.flag || 'null';
+                    document.getElementById('emoji_flag').value = data.emoji_flag || 'null';
+                    document.getElementById('emoji_unicode').value = data.emoji_unicode || 'null';
+                    document.getElementById('asn').value = data.asn.asn || 'null';
+                    document.getElementById('asn_name').value = data.asn.name || 'null';
+                    document.getElementById('asn_domain').value = data.asn.domain || 'null';
+                    document.getElementById('asn_route').value = data.asn.route || 'null';
+                    document.getElementById('language_name').value = data.languages[0].name || 'null';
+                    document.getElementById('language_native').value = data.languages[0].native || 'null';
+                    document.getElementById('language_code').value = data.languages[0].code || 'null';
+                    document.getElementById('currency_name').value = data.currency.name || 'null';
+                    document.getElementById('currency_code').value = data.currency.code || 'null';
+                    document.getElementById('currency_symbol').value = data.currency.symbol || 'null';
+                    document.getElementById('currency_native').value = data.currency.native || 'null';
+                    document.getElementById('currency_plural').value = data.currency.plural || 'null';
+                    document.getElementById('time_zone_name').value = data.time_zone.name || 'null';
+                    document.getElementById('time_zone_abbr').value = data.time_zone.abbr || 'null';
+                    document.getElementById('time_zone_offset').value = data.time_zone.offset || 'null';
+                    document.getElementById('time_zone_is_dst').value = data.time_zone.is_dst ? 'Sí' : 'No';
+                    document.getElementById('time_zone_current_time').value = data.time_zone.current_time || 'null';
+                    document.getElementById('is_tor').value = data.threat.is_tor ? 'Sí' : 'No';
+                    document.getElementById('is_icloud_relay').value = data.threat.is_icloud_relay ? 'Sí' : 'No';
+                    document.getElementById('is_proxy').value = data.threat.is_proxy ? 'Sí' : 'No';
+                    document.getElementById('is_datacenter').value = data.threat.is_datacenter ? 'Sí' : 'No';
+                    document.getElementById('is_anonymous').value = data.threat.is_anonymous ? 'Sí' : 'No';
+                    document.getElementById('is_known_attacker').value = data.threat.is_known_attacker ? 'Sí' : 'No';
+                    document.getElementById('is_known_abuser').value = data.threat.is_known_abuser ? 'Sí' : 'No';
+                    document.getElementById('is_bogon').value = data.threat.is_bogon ? 'Sí' : 'No';
+                })
+                .catch(error => console.error('Error fetching data: ', error));
+        }
+
+        // Agregar ambos listeners para cargar los datos al cargar la página
+        window.addEventListener('load', cargarDatosDispositivo);
+        window.addEventListener('load', cargarDatosIP);
+    </script>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/mediaQueryViewLink.css') }}">
+</body>
+
+</html>

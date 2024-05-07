@@ -1,0 +1,15 @@
+.grafico {
+    position: relative;
+}
+
+.grafico .sub_g {
+    border-radius: 20px;
+    background-color: rgb(29, 29, 29);
+    padding: 20px;
+    position: absolute;
+    width: calc(100% - 40px);
+}
+
+.grafico .sub_g canvas {
+    width: 100%;
+}

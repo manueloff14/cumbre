@@ -1,0 +1,77 @@
+<script>
+    function copiarEnlaceAlPortapapeles(shortLink) {
+        const fullLink = window.location.origin + '/' + shortLink;
+        navigator.clipboard.writeText(fullLink).then(function() {
+            alert('Se ha copiado: ' + fullLink);
+        }).catch(function(error) {
+            alert('Error al copiar: ' + error);
+        });
+    }
+</script>
+
+<div class="enlace_izquierda">
+    <div class="icono_enlace">
+        <img src="{{ link.favicon_url }}" alt="Favicon">
+    </div>
+    <div class="info_enlace">
+        <h3>
+            <strong>{{ link.title }}</strong>
+        </h3>
+        <h4>
+            <a target="_blank" href="{{ link.short_link }}">{{ link.short_link }}</a><!-- Aqui enlace Cumbre -->
+        </h4>
+        <span>
+            <a target="_blank" href="{{ link.long_link }}">{{ link.long_link }}</a>
+        </span>
+    </div>
+</div>
+<ul class="botones_enlace">
+    <li>
+        <button onclick="copiarEnlaceAlPortapapeles('{{ link.short_link }}')">
+            <img
+                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAABUklEQVR4nO2ZTUrEQBCFC1zoAdQBUUcPkzmDXsEL6BX0AP4geIC5xTCil1BwFBfiytm4MPBJQY8UjQvpdDcTrG+XDry8l7xOoCLiOM7/BdgDroAXoKUbbdC5VN0a5kfAnDLMgaak+f2C5hd8AMNSAbQ2NbgoFUC7WoNZLsPrwNgcd92wf6XNYX4APKqaWauGZAhwE4v1LcB73wP84AESEH8CBq9QAuIVMniFEhCvkMErlIB4hQxeoQTEK2TwCiUgXqHfK9SrqURrBFfC2nOlAE85Arwawa2wpgPYGpznCDA1ggdmKl1jNrqbI8CJEZ2a9SZcpJT5prP5YHQH+DTiR+bcUAewOsPM9H9gprXJcuejEGfmQl82RC8A1oD76I7dAofA9uLttNQAm8Ad5RjXCLEKnEZ7IgcPOsIvHiDa2MfAJHwnUjfwG3ANbFQz7ziOLBXfE/s98Op6tFYAAAAASUVORK5CYII=">
+            <span>Copiar</span>
+        </button>
+    </li>
+    <li>
+        <button onclick="mostrarFormEditarEnlace('{{ link.short_link }}')">
+            <img
+                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA3klEQVR4nO3WQQrCMBBA0TmFHsSFJ1OXzbKI93DhiQT3ohcQRPmSRUGkCU2FZAbmbdPAn4GWijjn1ADWwAm4A0/gAhyApWgHbIE3425xONEKCInw3yEWYjR+sBfjA5xFI6YP8RCtmDbEVUtoyJzlHOsXpwNLh3gBq/rV+bBQ8OymfnU+aNAn7uy+nunqV5e9nCFzd/RM4ze+F00K43UNMTNexxB/xpt4YXM6j5/DN9+Kb74V33wr+He+EXzzjeCbbwirf5UD0/GR6fjIdHxkOj4yHR+Zjo9MxzvnnNTyAbBED/Icg9jgAAAAAElFTkSuQmCC">
+        </button>
+    </li>
+    <li id="btnMoreOptions" onclick="mostrarOpcionesEnlace('{{ link.short_link }}')">
+        <button>
+            <img
+                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAoUlEQVR4nO3WwQnDMBBEUffhHJP0HoQ7i8ByAz8YfM0haxGt4b8KdqSVmGmSpLSAG1CAjf/bgAV4nBm+Ml4F5kiA/eSzeEUCjFibb9ZIgMbFAyzkUSIBnsA7ySO+/xzgCDHvD2jQOrXjI4kNL0njYRvtotpGE1gj+28b7ahEbsA2elKzjUq6OGyjXVTbaAJrZP9tox2VyA3YRk9qtlFJU3ofFZUkh88TeqYAAAAASUVORK5CYII=">
+        </button>
+    </li>
+    <script>
+        function mostrarOpcionesEnlace(shortLink) {
+            var moreOptionsEnlace = document.getElementById('moreOptionsEnlace-' + shortLink);
+            if (moreOptionsEnlace.style.display === 'none' || moreOptionsEnlace.style.display === '') {
+                moreOptionsEnlace.style.display = 'block';
+            } else {
+                moreOptionsEnlace.style.display = 'none';
+            }
+        }
+    </script>
+    <li>
+        <form action="/eliminar_enlace" method="post">
+            <input type="hidden" id="enlaceCorto" name="enlaceCorto" value="{{ link.short_link }}">
+            <button type="button" onclick="confirmarEliminacion('{{ link.title }}')">
+                <img
+                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAABUklEQVR4nO3YrUtDYRiG8dePanEGk+ZZtA+PgmnZGfQvcP+BMFAYBotJwWRXMdtcFRQsWqwmRXBi9OuSwRmc4FHDez/HI88Fp477N9jhYSF4nud5XuSAGWDpi6cODIW/HDANvJNfu6hhw0At55vNPtt839kvPqMOjMYcPwJcYNsjMBsL0KKYLmMB9gsCPMcCLBcEOI4FGADWgAej4S/AEVCJAshAmkaATtThGUDDCHCgAiRGgB0VoGoEWFcBxowATRVgEHg1ACxKACni3gCQKAHXBoCqEtAxAFSUgEPx+Lfeb00J2BUD7mTjU8CGGHClBqjvoVM1oFHKO6gfMFfKO6gfMFXKO8jwHloNytJ7qPeuLt8dZHQPJUEdcC4ETFoAtkTjb+TjU8A40BUAVkwAKWIeeIo0/APYNBufQUwAe8DtD/9I59UFToAF8/Ge53nev+gT4Xg+5D1jwYgAAAAASUVORK5CYII=">
+            </button>
+        </form>
+        <script>
+            function confirmarEliminacion(title) {
+                var mensaje = "¿Está seguro de que desea eliminar el enlace: '" + title + "'?";
+                if (confirm(mensaje)) {
+                    // El usuario presionó "Aceptar", enviar el formulario
+                    document.forms[0].submit();
+                }
+                // Si el usuario presionó "Cancelar", no hacer nada
+            }
+        </script>
+    </li>
+</ul>

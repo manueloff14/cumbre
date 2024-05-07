@@ -1,0 +1,60 @@
+<!-- enlaces.html -->
+{% extends 'base.html' %}
+
+{% block title %}Transferencias | {{ super() }}{% endblock %}
+
+{% block content %}
+
+<style>
+    .transferencias_superior {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .clicks,
+    .saldo,
+    .enlaces_generados {
+        width: 28%;
+    }
+
+    .pagina {
+        width: 80%;
+    }
+
+    @media (max-width: 1316px) {
+        .pagina {
+            width: 100%;
+        }
+    }
+</style>
+
+<div class="transferencias_superior">
+    {% include './components/saldoClicksEnlaces.html' %}
+</div>
+<br>
+{% include './components/retiros.html' %}
+<br>
+{% include './components/graficoDinero.html' %}
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+{% endblock %}
