@@ -8,6 +8,15 @@ export default function Buscar({ categorias = [] }) {
     const [loading, setLoading] = useState(false);
     const [resultados, setResultados] = useState([]);
 
+    // Definir sanitizeString fuera del JSX
+    const sanitizeString = (str) => {
+        return str
+            .toLowerCase()
+            .normalize('NFD') // Normaliza caracteres
+            .replace(/[\u0300-\u036f]/g, '') // Elimina tildes
+            .replace(/[^a-z0-9]/g, '-'); // Reemplaza caracteres no alfanuméricos por '-'
+    };
+
     // useEffect para hacer la petición cuando el inputValue cambia
     useEffect(() => {
         const fetchResults = async () => {
@@ -43,7 +52,7 @@ export default function Buscar({ categorias = [] }) {
     };
 
     return (
-        <div className="mt-3">
+        <div className="mt-3 pb-16 lg:pb-0">
             <div className="bg-white rounded-xl flex items-center p-3">
                 <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20" viewBox="0 0 48 48">
                     <path d="M 20.5 6 C 12.509634 6 6 12.50964 6 20.5 C 6 28.49036 12.509634 35 20.5 35 C 23.956359 35 27.133709 33.779044 29.628906 31.75 L 39.439453 41.560547 A 1.50015 1.50015 0 1 0 41.560547 39.439453 L 31.75 29.628906 C 33.779044 27.133709 35 23.956357 35 20.5 C 35 12.50964 28.490366 6 20.5 6 z M 20.5 9 C 26.869047 9 32 14.130957 32 20.5 C 32 23.602612 30.776198 26.405717 28.791016 28.470703 A 1.50015 1.50015 0 0 0 28.470703 28.791016 C 26.405717 30.776199 23.602614 32 20.5 32 C 14.130953 32 9 26.869043 9 20.5 C 9 14.130957 14.130953 9 20.5 9 z"></path>
@@ -73,8 +82,8 @@ export default function Buscar({ categorias = [] }) {
                     </div>
                     <div>
                         {resultados.map((resultado, index) => (
-                            <Link href={`/empleo/${resultado.id}`} >
-                                <div key={index} className="p-3 bg-gray-800 mt-1 rounded-2xl">
+                            <Link href={`/empleo/${resultado.id}`} key={index}>
+                                <div className="p-3 bg-gray-800 mt-1 rounded-2xl">
                                     {resultado.title}
                                 </div>
                             </Link>
@@ -87,12 +96,11 @@ export default function Buscar({ categorias = [] }) {
                     <div className="grid gap-2 mt-3 grid-cols-1 text-sm lg:grid-cols-2">
                         {categorias.length > 0 ? (
                             categorias.map((categoria, index) => (
-                                <div
-                                    className="p-3 bg-gray-800 border-2 border-white rounded-lg"
-                                    key={index}
-                                >
-                                    {categoria}
-                                </div>
+                                <Link href={`/categoria/${sanitizeString(categoria)}`} key={index}>
+                                    <div className="p-3 bg-gray-800 border-2 border-white rounded-lg">
+                                        {categoria}
+                                    </div>
+                                </Link>
                             ))
                         ) : (
                             <p>No categories available</p>

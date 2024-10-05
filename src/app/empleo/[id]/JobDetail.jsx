@@ -24,10 +24,10 @@ export default function JobDetail({data}) {
 
             {/* PC */}
             <div className="hidden lg:flex">
-                <div className="w-[70%] pr-4">
+                <div className="w-[60%] pr-4 xl:w-[70%]">
                     <JobDescription jobDescription={data.jobDescription} />
                 </div>
-                <div className="w-[30%]">
+                <div className="w-[40%] xl:w-[30%]">
                     <JobCompany data={data} />
                     <JobResumen data={data} />
                     <a href={data.job_url} className="">

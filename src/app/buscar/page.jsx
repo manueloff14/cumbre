@@ -4,8 +4,8 @@ import HeaderMobile from '@/components/HeaderMobile';
 import axios from 'axios';
 
 export const metadata = {
-  title: 'Buscar | Cumbre',
-  description: 'Home page',
+  title: 'Buscar Empleos en Colombia: Oportunidades en Todos los Sectores | Cumbre',
+  description: 'Busca empleos en Colombia de forma fácil y rápida con Cumbre. Encuentra oportunidades laborales en todos los sectores y ciudades del país. ¡Comienza tu búsqueda y aplica a las mejores vacantes ahora!',
 };
 
 export default async function PageBuscar() {

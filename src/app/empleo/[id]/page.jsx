@@ -33,14 +33,25 @@ export default function JobPage() {
     }, [id])
 
     useEffect(() => {
+        const metaDescription = document.querySelector('meta[name="description"]');
+    
         if (loading) {
-            document.title = "Cargando vacante...";
+            document.title = "Cargando Empleo en Colombia | Cumbre";
+            if (metaDescription) {
+                metaDescription.setAttribute("content", "Cargando información del empleo en Colombia...");
+            }
         } else if (error) {
-            document.title = "Error al cargar vacante";
+            document.title = "Error al Cargar Empleo en Colombia | Cumbre";
+            if (metaDescription) {
+                metaDescription.setAttribute("content", "Hubo un error al cargar la información del empleo. Inténtalo de nuevo más tarde.");
+            }
         } else if (jobData) {
-            document.title = `Trabaja como: ${jobData.title}`;
+            document.title = `${jobData.title} - Empleo en Colombia | Cumbre`;
+            if (metaDescription) {
+                metaDescription.setAttribute("content", `Trabaja como ${jobData.title}. Descubre esta y más ofertas de empleo en Colombia con Cumbre.`);
+            }
         }
-    }, [loading, error, jobData]);
+    }, [loading, error, jobData]);    
 
     if (error) return <div>{error}</div>;
     if (loading || !jobData) {
@@ -58,7 +69,7 @@ export default function JobPage() {
         <div>
             <main className="lg:flex lg:justify-between">
                 <Header />
-                <div className="lg:w-[75%] lg:ml-[25%] p-4">
+                <div className="lg:w-[75%] lg:ml-[25%] p-4 pb-20 lg:pb-5">
                     <HeaderMobile title="Vacante" />
                     <JobDetail data={jobData} />
                 </div>

@@ -5,12 +5,14 @@ export default function HeaderMobile({title}) {
     return (
         <div className="flex items-center justify-between">
             <div className="flex flex-grow basis-0 lg:hidden">
-                <Image
-                    src="/img/cumbre_icon-logo.svg"
-                    alt="Logo Cumbre"
-                    width={40}
-                    height={40}
-                />
+                <Link href="/">
+                    <Image
+                        src="/img/cumbre_icon-logo.svg"
+                        alt="Logo Cumbre"
+                        width={40}
+                        height={40}
+                    />
+                </Link>
             </div>
             <span className="text-lg">
                 <strong>{title}</strong>

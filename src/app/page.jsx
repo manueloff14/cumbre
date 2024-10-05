@@ -6,8 +6,8 @@ import Categories from '@/components/pages/index/Categories'
 import LatestJobs from '@/components/pages/index/LatestJobs'
 
 export const metadata = {
-  title: 'Encuentra tu empleo ideal | Cumbre',
-  description: 'Home page',
+  title: 'Encuentra Empleos en Colombia Rápido y Sin Registro | Cumbre',
+  description: 'Cumbre - El buscador de empleo líder en Colombia. Encuentra oportunidades laborales de todo tipo, sin costos ni registros. Consigue tu empleo ideal hoy con vacantes claras y accesibles.',
 }
 
 export default async function Home() {

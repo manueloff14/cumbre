@@ -46,14 +46,25 @@ export default function CategoryPage() {
     }
 
     useEffect(() => {
+        const metaDescription = document.querySelector('meta[name="description"]');
+    
         if (loading) {
-        document.title = "Cargando categoría...";
+            document.title = "Cargando Empleos por Categoría | Cumbre";
+            if (metaDescription) {
+                metaDescription.setAttribute("content", "Buscando empleos por categoría en Colombia. Encuentra la mejor oferta de trabajo con Cumbre.");
+            }
         } else if (error) {
-        document.title = "Error al cargar categoría";
+            document.title = "Error al Cargar Empleos por Categoría | Cumbre";
+            if (metaDescription) {
+                metaDescription.setAttribute("content", "Hubo un error al cargar los empleos de esta categoría. Por favor, intenta de nuevo.");
+            }
         } else if (categoryData) {
-        document.title = `Categoría: ${capitalize(categoriaString)}`;
+            document.title = `Empleos en ${capitalize(categoriaString)} en Colombia | Cumbre`;
+            if (metaDescription) {
+                metaDescription.setAttribute("content", `Encuentra las mejores ofertas de trabajo en la categoría ${capitalize(categoriaString)} en Colombia. Descubre oportunidades laborales con Cumbre.`);
+            }
         }
-    }, [loading, error, categoryData, categoriaString]);
+    }, [loading, error, categoryData, categoriaString]);    
 
     if (error) return <div>{error}</div>;
     if (loading || !categoryData) {
@@ -71,7 +82,7 @@ export default function CategoryPage() {
         <div>
             <main className="lg:flex lg:justify-between">
                 <Header />
-                <div className="lg:w-[75%] lg:ml-[25%] p-4">
+                <div className="lg:w-[75%] lg:ml-[25%] p-4 pb-16 lg:pb-0">
                     <HeaderMobile title="Categoría" />
                     {/* Ahora `categoryData` es un array */}
                     <CategoryDetail data={categoryData} categoria={capitalize(categoriaString)} />
