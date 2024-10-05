@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 
 export default function HeaderMobile({title}) {
     return (
@@ -15,9 +16,9 @@ export default function HeaderMobile({title}) {
                 <strong>{title}</strong>
             </span>
             <div className="flex flex-grow justify-end basis-0">
-                <a href="/ayuda">
+                <Link href="/ayuda">
                     <button className="bg-red-500 py-2 px-4 rounded-xl">Ayuda</button>
-                </a>
+                </Link>
             </div>
         </div>
     )
