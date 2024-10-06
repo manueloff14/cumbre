@@ -12,7 +12,7 @@ export default function LatestJobs({latestJobs}) {
                     <div className="p-[20px] bg-gray-900 rounded-xl mb-[10px] lg:mb-0 flex flex-col lg:min-h-[200px]">
                     <div>
                         <h2 className="font-bold text-[16px]">
-                        {job.title}
+                            {job.title_job}
                         </h2>
                         <h2 className="text-sm text-[#c2c2c2]">{job.company}</h2>
                     </div>
