@@ -5,6 +5,7 @@ import Header from '@/components/Header';
 import Buscar from '@/components/pages/buscar/Buscar';
 import HeaderMobile from '@/components/HeaderMobile';
 import axios from 'axios';
+import Cargando from '@/components/Cargando';
 
 export default function PageBuscar() {
   const [categories, setCategories] = useState([]);
@@ -56,7 +57,7 @@ export default function PageBuscar() {
           <HeaderMobile title="Buscar" />
 
           {/* Mostrar mensaje de carga */}
-          {loading && <p>Cargando categorías...</p>}
+          {loading && <Cargando />}
 
           {/* Mostrar mensaje de error si ocurre */}
           {error && <p>{error}</p>}

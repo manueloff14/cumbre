@@ -6,6 +6,7 @@ import Header from '@/components/Header';
 import HeaderMobile from '@/components/HeaderMobile';
 import Categories from '@/components/pages/index/Categories';
 import LatestJobs from '@/components/pages/index/LatestJobs';
+import Cargando from '@/components/Cargando';
 
 export default function Home() {
   const [latestJobs, setLatestJobs] = useState([]);
@@ -49,7 +50,7 @@ export default function Home() {
     }
   }, [loading, error, categories, latestJobs]);
 
-  if (loading) return <div>Cargando...</div>;
+  if (loading) return <Cargando />;
   if (error) return <div>{error}</div>;
 
   return (
