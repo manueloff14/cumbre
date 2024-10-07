@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 :root {
-  --background: #0a0a0a; /* Dark mode background by default */
-  --foreground: #ededed; /* Light text color by default */
+  --background: #09111b; /* Dark blue background */
+  --foreground: #ffffff; /* White text */
 }
 
 body {
@@ -12,6 +12,36 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Aplica globalmente a todos los scrollbars */
+::-webkit-scrollbar {
+  width: 4px; /* Ancho de la barra de desplazamiento */
+  height: 4px; /* Ancho de la barra de desplazamiento horizontal (si existe) */
+}
+
+/* Oculta el track de fondo */
+::-webkit-scrollbar-track {
+  background-color: transparent; /* Fondo transparente */
+}
+
+/* Estilo del pulgar */
+::-webkit-scrollbar-thumb {
+  background-color: #888; /* Color del pulgar */
+  border-radius: 9999px; /* Borde totalmente redondeado */
+  border: none; /* Sin borde */
+}
+
+/* Pulgar al pasar el ratón */
+::-webkit-scrollbar-thumb:hover {
+  background-color: #555; /* Color del pulgar al hacer hover */
+}
+
+/* Para Firefox */
+* {
+  scrollbar-width: thin; /* Barra de desplazamiento delgada */
+  scrollbar-color: #888 transparent; /* Color del pulgar y fondo transparente */
+}
+
 
 @layer utilities {
   .text-balance {
